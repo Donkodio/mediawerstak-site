@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Бизнес — MediaWerstak</title>
+<meta name="description" content="Как устроены компании, деньги и работа. Контент-завод: 10 тематик, 7 площадок, ежедневный выход.">
+<link rel="canonical" href="https://mediawerstak.com/business.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MediaWerstak">
+<meta property="og:title" content="Бизнес — MediaWerstak">
+<meta property="og:description" content="Как устроены компании, деньги и работа. Контент-завод: 10 тематик, 7 площадок, ежедневный выход.">
+<meta property="og:image" content="https://mediawerstak.com/assets/og.png">
+<meta name="theme-color" content="#0B101B">
+<link rel="icon" href="assets/favicon_48.png" sizes="48x48">
+<link rel="apple-touch-icon" href="assets/avatar_165.png">
+<style>
+:root{--bg:#0B101B;--bg2:#0E1522;--card:rgba(255,255,255,.045);--line:rgba(255,255,255,.10);
+--text:#F3F5F9;--muted:#A9B4C6;--gold:#FFD98A;--gold2:#E9A24B;--mint:#68D8BC}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+font:400 17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;
+-webkit-font-smoothing:antialiased}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+background:radial-gradient(900px 600px at 12% -10%,rgba(233,162,75,.16),transparent 60%),
+radial-gradient(800px 600px at 92% 8%,rgba(104,216,188,.12),transparent 60%),
+radial-gradient(700px 500px at 50% 110%,rgba(143,201,255,.10),transparent 60%)}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1120px,92vw);margin:0 auto}
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+background:rgba(11,16,27,.72);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:14px;padding:14px 0}
+.nav img{width:46px;height:46px;border-radius:11px;box-shadow:0 6px 20px rgba(0,0,0,.45)}
+.brandname{font-weight:700;letter-spacing:.14em;font-size:15px;text-transform:uppercase}
+.brandname span{color:var(--gold)}
+.nav .links{margin-left:auto;display:flex;gap:22px;font-size:14px;color:var(--muted)}
+.nav .links a:hover{color:var(--text)}
+@media(max-width:760px){.nav .links{display:none}}
+.hero{padding:52px 0 26px;text-align:center}
+.hero .logo{width:124px;height:124px;border-radius:30px;margin:0 auto 22px;display:block;
+box-shadow:0 30px 80px rgba(233,162,75,.28);animation:rise .9s ease both}
+h1{font-size:clamp(34px,6vw,64px);line-height:1.05;margin:0 0 14px;letter-spacing:-.02em}
+h1 em{font-style:normal;background:linear-gradient(92deg,var(--gold),var(--gold2) 55%,var(--mint));
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.tagline{color:var(--muted);font-size:clamp(15px,2.2vw,20px);margin:0 auto;max-width:640px}
+.pill{display:inline-block;margin-bottom:18px;padding:7px 14px;border:1px solid var(--line);
+border-radius:999px;font-size:12px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
+.actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.btn{padding:14px 24px;border-radius:14px;font-weight:600;font-size:15px;border:1px solid var(--line);
+transition:transform .18s ease,border-color .18s ease}
+.btn:hover{transform:translateY(-2px);border-color:rgba(255,217,138,.55)}
+.btn.main{background:linear-gradient(92deg,var(--gold),var(--gold2));color:#16120A;border:0;
+box-shadow:0 16px 40px rgba(233,162,75,.28)}
+section{padding:44px 0}
+h2{font-size:clamp(24px,3.4vw,36px);margin:0 0 10px;letter-spacing:-.01em}
+.lead{color:var(--muted);margin:0 0 30px;max-width:720px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(258px,1fr))}
+.card{position:relative;padding:22px;border:1px solid var(--line);border-radius:20px;
+background:var(--card);transition:transform .2s ease,border-color .2s ease,background .2s ease;overflow:hidden}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,217,138,.4);background:rgba(255,255,255,.07)}
+.card .num{font-size:12px;letter-spacing:.2em;color:var(--muted)}
+.card h3{margin:10px 0 8px;font-size:20px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.card .bar{position:absolute;left:0;top:0;height:3px;width:100%;opacity:.85}
+.socials{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.social{display:flex;align-items:center;justify-content:space-between;padding:15px 18px;
+border:1px solid var(--line);border-radius:14px;background:var(--card);font-size:15px}
+.social .st{font-size:12px;color:var(--muted);letter-spacing:.08em}
+.social.on .st{color:var(--mint)}
+.social.off{opacity:.55}
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));counter-reset:s}
+.step{padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--card)}
+.step:before{counter-increment:s;content:"0" counter(s);display:block;font-size:12px;
+letter-spacing:.2em;color:var(--gold);margin-bottom:10px}
+.step h4{margin:0 0 8px;font-size:17px}.step p{margin:0;color:var(--muted);font-size:15px}
+ul.clean{list-style:none;padding:0;margin:0}
+ul.clean li{padding:11px 0;border-bottom:1px dashed rgba(255,255,255,.10);color:var(--muted)}
+ul.clean li:last-child{border:0}
+ul.clean li b{color:var(--text);font-weight:600}
+.topic-hero{padding:64px 0 20px}
+.topic-hero .crumb{font-size:13px;color:var(--muted);letter-spacing:.06em;margin-bottom:18px}
+.topic-hero h1{font-size:clamp(30px,5vw,52px)}
+.two{display:grid;gap:28px;grid-template-columns:1.25fr .75fr;align-items:start}
+@media(max-width:860px){.two{grid-template-columns:1fr}}
+.panel{padding:24px;border:1px solid var(--line);border-radius:20px;background:var(--card)}
+.panel h4{margin:0 0 14px;font-size:15px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase}
+.soon{display:inline-block;padding:5px 11px;border-radius:999px;border:1px solid var(--line);
+font-size:12px;color:var(--muted)}
+footer{padding:44px 0 60px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+.foot{display:flex;gap:18px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.foot .mw{width:54px;height:54px;border-radius:14px}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@keyframes rise{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
+.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a href="index.html" style="display:flex;align-items:center;gap:12px">
+<img src="assets/logo.png" alt="MediaWerstak">
+<span class="brandname">Media<span>Werstak</span></span></a>
+<nav class="links">
+<a href="index.html#topics">Тематики</a>
+<a href="index.html#platforms">Площадки</a>
+<a href="index.html#how">Как это работает</a>
+<a href="about.html">О проекте</a>
+<a href="contact.html">Контакты</a>
+</nav></div></header>
+
+<div class="wrap topic-hero">
+<div class="crumb"><a href="index.html">Главная</a> · Тематики · Бизнес</div>
+<span class="pill" style="color:#C7B7FF;border-color:#C7B7FF44">07 / CONTENT FACTORY</span>
+<h1>Бизнес</h1>
+<p class="tagline" style="text-align:left;margin:12px 0 0">Как устроены компании, деньги и работа.</p>
+</div>
+
+<section style="padding-top:26px"><div class="wrap two">
+<div class="panel reveal">
+<h4>Что это</h4>
+<p style="margin:0 0 16px">Разборы без инфоцыганства: откуда берутся деньги, как работают модели, что меняется на рынке. Полезно и владельцу, и сотруднику.</p>
+<h4>Что публикуем</h4>
+<ul class="clean"><li>разбор одной компании</li><li>простая экономика</li><li>инструменты и сервисы</li><li>ошибки, которые дорого стоят</li></ul>
+</div>
+<div class="panel reveal">
+<h4>Формат выхода</h4>
+<ul class="clean">
+<li><b>Instagram · Facebook · Pinterest</b> — карусель 4:5</li>
+<li><b>TikTok · Shorts · Reels</b> — видео 1080×1920</li>
+<li><b>Telegram</b> — один пост: фото и описание</li>
+<li><b>Ритм</b> — 3 публикации в день</li>
+</ul>
+<h4 style="margin-top:22px">Где смотреть</h4>
+<div class="socials"><a class="social on" href="https://t.me/mediawerstak" target="_blank" rel="noopener"><span>Telegram</span><span class="st">есть</span></a><div class="social off"><span>TikTok</span><span class="st">скоро</span></div><div class="social off"><span>Instagram</span><span class="st">скоро</span></div><div class="social off"><span>YouTube</span><span class="st">скоро</span></div><div class="social off"><span>X</span><span class="st">скоро</span></div><a class="social on" href="https://www.pinterest.com/mediawerstak" target="_blank" rel="noopener"><span>Pinterest</span><span class="st">есть</span></a><div class="social off"><span>Facebook</span><span class="st">скоро</span></div></div>
+</div></div></section>
+
+<section><div class="wrap">
+<h2>Другие тематики</h2>
+<div class="grid"><a class="card reveal" href="news.html" style="padding:16px"><div class="bar" style="background:#68D8BC"></div><h3 style="font-size:17px;margin:6px 0 4px">Хорошие новости</h3><p style="font-size:14px">То, чего нет в топе: события, которые меняют день к лучшему.</p></a><a class="card reveal" href="science.html" style="padding:16px"><div class="bar" style="background:#8FC9FF"></div><h3 style="font-size:17px;margin:6px 0 4px">Наука и природа</h3><p style="font-size:14px">Открытия, животные, космос и то, как устроен мир.</p></a><a class="card reveal" href="glam.html" style="padding:16px"><div class="bar" style="background:#FFB98A"></div><h3 style="font-size:17px;margin:6px 0 4px">Эстетика</h3><p style="font-size:14px">Красивые кадры, стиль, интерьеры, атмосфера.</p></a><a class="card reveal" href="world.html" style="padding:16px"><div class="bar" style="background:#A6E3C6"></div><h3 style="font-size:17px;margin:6px 0 4px">Мир</h3><p style="font-size:14px">Страны, города, люди и их устройство без политики.</p></a><a class="card reveal" href="life.html" style="padding:16px"><div class="bar" style="background:#FFD98A"></div><h3 style="font-size:17px;margin:6px 0 4px">Жизненное</h3><p style="font-size:14px">Истории людей, из которых что-то понятно про себя.</p></a><a class="card reveal" href="facts.html" style="padding:16px"><div class="bar" style="background:#9ED8FF"></div><h3 style="font-size:17px;margin:6px 0 4px">Факты</h3><p style="font-size:14px">Короткие проверенные факты — по одному в посте.</p></a><a class="card reveal" href="health.html" style="padding:16px"><div class="bar" style="background:#8FE3B4"></div><h3 style="font-size:17px;margin:6px 0 4px">Здоровье</h3><p style="font-size:14px">Сон, движение, питание — по доказательствам, а не по слухам.</p></a><a class="card reveal" href="soul.html" style="padding:16px"><div class="bar" style="background:#FFC2D1"></div><h3 style="font-size:17px;margin:6px 0 4px">Душевные цитаты</h3><p style="font-size:14px">Слова, которые попадают в день.</p></a><a class="card reveal" href="bio.html" style="padding:16px"><div class="bar" style="background:#7FE0D0"></div><h3 style="font-size:17px;margin:6px 0 4px">Биохакинг</h3><p style="font-size:14px">Практики для тела и головы — с проверкой на здравый смысл.</p></a></div></div></section>
+<footer><div class="wrap foot">
+<div style="display:flex;align-items:center;gap:14px">
+<img class="mw" src="assets/mw.png" alt="MediaWerstak">
+<div><b style="color:#F3F5F9">MediaWerstak</b> · CONTENT FACTORY<br>Not your feed · Не ваша лента</div></div>
+<div style="text-align:right"><a href="https://t.me/mediawerstak" target="_blank" rel="noopener">Telegram</a> · <a href="https://www.pinterest.com/mediawerstak" target="_blank" rel="noopener">Pinterest</a><br>
+<a href="https://link.mediawerstak.com" target="_blank" rel="noopener" style="color:var(--gold)">
+все площадки → link.mediawerstak.com</a></div>
+</div></footer>
+<script>
+(function(){var els=document.querySelectorAll('.reveal');
+if(!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('in')});return}
+var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+els.forEach(function(e){io.observe(e)});})();
+</script>
+</body></html>
+
