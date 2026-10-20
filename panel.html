@@ -117,7 +117,8 @@ border-radius:999px;padding:8px 14px;font-size:13px;cursor:pointer;font-family:i
 .tile.wait{border-color:rgba(255,217,138,.3)}
 .ttl{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:8px}
 .ttl b{font-size:15px}
-.tile .handle{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#CFE3FF}
+.tile .handle{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#CFE3FF;text-decoration:none;display:inline-block}
+.tile a.handle:hover{color:#FFD98A;text-decoration:underline}
 .tile .meta{color:var(--muted);font-size:12.5px;margin-top:8px}
 .pill{font-size:12px;padding:4px 10px;border-radius:999px;white-space:nowrap}
 .pill.on{background:rgba(104,216,188,.14);color:#68D8BC}
@@ -154,7 +155,7 @@ border-left:3px solid #68D8BC;border-radius:12px;padding:18px;color:var(--muted)
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-const D = {"platforms": ["Telegram", "Instagram", "TikTok", "YouTube", "Pinterest", "X"], "matrix": {"Telegram": {"Хорошие новости": 2, "Наука и природа": 2, "Эстетика": 2, "Мир": 2, "Жизненное": 2, "Факты": 2, "Бизнес": 2, "Здоровье": 2, "Душевные цитаты": 1, "Биохакинг": 1}, "Instagram": {"Хорошие новости": 2, "Наука и природа": 1, "Эстетика": 2, "Мир": 0, "Жизненное": 0, "Факты": 1, "Бизнес": 0, "Здоровье": 0, "Душевные цитаты": 0, "Биохакинг": 2}, "TikTok": {"Хорошие новости": 1, "Наука и природа": 0, "Эстетика": 1, "Мир": 0, "Жизненное": 0, "Факты": 1, "Бизнес": 0, "Здоровье": 0, "Душевные цитаты": 0, "Биохакинг": 0}, "YouTube": {"Хорошие новости": 0, "Наука и природа": 1, "Эстетика": 0, "Мир": 0, "Жизненное": 0, "Факты": 0, "Бизнес": 0, "Здоровье": 1, "Душевные цитаты": 0, "Биохакинг": 0}, "Pinterest": {"Хорошие новости": 0, "Наука и природа": 0, "Эстетика": 2, "Мир": 0, "Жизненное": 0, "Факты": 0, "Бизнес": 0, "Здоровье": 1, "Душевные цитаты": 2, "Биохакинг": 0}, "X": {"Хорошие новости": 0, "Наука и природа": 0, "Эстетика": 0, "Мир": 0, "Жизненное": 0, "Факты": 1, "Бизнес": 0, "Здоровье": 0, "Душевные цитаты": 0, "Биохакинг": 0}}, "handles": {"Хорошие новости": "divinebrief", "Наука и природа": "naukbrief", "Эстетика": "estetikabrief", "Мир": "erdbrief", "Жизненное": "zhiznbrief", "Факты": "faktybrief", "Бизнес": "delobrief", "Здоровье": "zdoroviebrief", "Душевные цитаты": "dushevnobrief", "Биохакинг": "biohackbell"}, "slugs": {"Хорошие новости": "news", "Наука и природа": "science", "Эстетика": "glam", "Мир": "world", "Жизненное": "life", "Факты": "facts", "Бизнес": "business", "Здоровье": "health", "Душевные цитаты": "soul", "Биохакинг": "bio", "Душевное": "soul"}, "posts": {"Хорошие новости": 21, "Наука и природа": 14, "Эстетика": 19, "Мир": 12, "Жизненное": 14, "Факты": 16, "Бизнес": 12, "Здоровье": 11, "Душевные цитаты": 10, "Биохакинг": 10}};
+const D = {"platforms": ["Telegram", "Instagram", "TikTok", "YouTube", "Pinterest", "X"], "matrix": {"Telegram": {"Хорошие новости": 2, "Наука и природа": 2, "Эстетика": 2, "Мир": 2, "Жизненное": 2, "Факты": 2, "Бизнес": 2, "Здоровье": 2, "Душевные цитаты": 1, "Биохакинг": 1}, "Instagram": {"Хорошие новости": 2, "Наука и природа": 1, "Эстетика": 2, "Мир": 0, "Жизненное": 0, "Факты": 1, "Бизнес": 0, "Здоровье": 0, "Душевные цитаты": 0, "Биохакинг": 2}, "TikTok": {"Хорошие новости": 1, "Наука и природа": 0, "Эстетика": 1, "Мир": 0, "Жизненное": 0, "Факты": 1, "Бизнес": 0, "Здоровье": 0, "Душевные цитаты": 0, "Биохакинг": 0}, "YouTube": {"Хорошие новости": 0, "Наука и природа": 1, "Эстетика": 0, "Мир": 0, "Жизненное": 0, "Факты": 0, "Бизнес": 0, "Здоровье": 1, "Душевные цитаты": 0, "Биохакинг": 0}, "Pinterest": {"Хорошие новости": 0, "Наука и природа": 0, "Эстетика": 2, "Мир": 0, "Жизненное": 0, "Факты": 0, "Бизнес": 0, "Здоровье": 1, "Душевные цитаты": 2, "Биохакинг": 0}, "X": {"Хорошие новости": 0, "Наука и природа": 0, "Эстетика": 0, "Мир": 0, "Жизненное": 0, "Факты": 1, "Бизнес": 0, "Здоровье": 0, "Душевные цитаты": 0, "Биохакинг": 0}}, "handles": {"Хорошие новости": "divinebrief", "Наука и природа": "naukbrief", "Эстетика": "estetikabrief", "Мир": "erdbrief", "Жизненное": "zhiznbrief", "Факты": "faktybrief", "Бизнес": "delobrief", "Здоровье": "zdoroviebrief", "Душевные цитаты": "dushevnobrief", "Биохакинг": "biohackbell"}, "slugs": {"Хорошие новости": "news", "Наука и природа": "science", "Эстетика": "glam", "Мир": "world", "Жизненное": "life", "Факты": "facts", "Бизнес": "business", "Здоровье": "health", "Душевные цитаты": "soul", "Биохакинг": "bio", "Душевное": "soul"}, "posts": {"Хорошие новости": 21, "Наука и природа": 14, "Эстетика": 19, "Мир": 12, "Жизненное": 14, "Факты": 16, "Бизнес": 12, "Здоровье": 11, "Душевные цитаты": 10, "Биохакинг": 10}, "urls": {"Telegram": "https://t.me/{h}", "Instagram": "https://www.instagram.com/{h}", "TikTok": "https://www.tiktok.com/@{h}", "YouTube": "https://www.youtube.com/@{h}", "Pinterest": "https://www.pinterest.com/{h}", "X": "https://x.com/{h}"}};
 let mode = 'branch';
 let sel = {branch: 'Хорошие новости', platform: 'Telegram'};
 const ST = {2:['подключён','on'], 1:['ожидает входа','wait'], 0:['не подключён','off']};
@@ -185,7 +186,8 @@ function render(){
       const posts = st===2 ? Math.max(2, Math.round(D.posts[b]/2)) : 0;
       html += '<div class="tile '+(st===2?'on':st===1?'wait':'')+'">'
         + '<div class="ttl"><b>'+p+'</b>'+pill(st)+'</div>'
-        + '<div class="handle">'+(st>0?'@'+h:'—')+'</div>'
+        + '<div>'+(st>0?'<a class="handle" target="_blank" rel="noopener" href="'
+            + D.urls[p].replace('{h}', h)+'">@'+h+' ↗</a>':'<span class="handle">—</span>')+'</div>'
         + '<div class="meta">'+(st===2?'публикаций за 7 дней: <b style="color:#68D8BC">'+posts+'</b>'
             : st===1?'нужно подтвердить вход':'аккаунт ещё не создан')+'</div></div>';
     });
@@ -197,7 +199,8 @@ function render(){
       const st = D.matrix[p][b], slug = D.slugs[b];
       html += '<div class="tile '+(st===2?'on':st===1?'wait':'')+'">'
         + '<div class="ttl"><a class="blink" href="'+slug+'.html"><b>'+b+'</b><span class="barr">→</span></a>'+pill(st)+'</div>'
-        + '<div class="handle">'+(st>0?'@'+D.handles[b]:'—')+'</div>'
+        + '<div>'+(st>0?'<a class="handle" target="_blank" rel="noopener" href="'
+            + D.urls[p].replace('{h}', D.handles[b])+'">@'+D.handles[b]+' ↗</a>':'<span class="handle">—</span>')+'</div>'
         + '<div class="meta">'+(st===2?'публикаций за 7 дней: <b style="color:#68D8BC">'
             + Math.max(2, Math.round(D.posts[b]/2))+'</b>' : st===1?'нужно подтвердить вход':'здесь ветки нет')+'</div></div>';
     });
@@ -225,7 +228,7 @@ render();
 <nav class="links">
 <a href="index.html#service">Сервис</a>
 <a href="index.html#plans">Варианты</a>
-<a href="panel.html">Панель</a>
+<a href="panel.html">Дашборд</a>
 <a href="index.html#topics">Пример работы</a>
 <a href="index.html#how">Как это работает</a>
 <a href="about.html">О проекте</a>
@@ -234,7 +237,7 @@ render();
 
 <section style="padding-top:40px"><div class="wrap">
 <div class="num">ПАНЕЛЬ</div>
-<h2>Панель управления</h2>
+<h2>Дашборд: аккаунты и публикации</h2>
 <p class="lead">Смотрите с двух сторон: выбрали ветку — видно, в каких соцсетях она есть, а где ещё нет.
 Выбрали соцсеть — видно, какие ветки в ней работают. Планируете и выпускаете во все площадки ветки сразу.</p>
 <p class="note">Это демонстрация интерфейса: данные тестовые. <b>Пароли и токены в панели не хранятся
