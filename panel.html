@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Панель управления — MediaWerstak</title>
+<meta name="description" content="Подключённые аккаунты, публикации по площадкам, очередь и план по веткам.">
+<link rel="canonical" href="https://mediawerstak.com/panel.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MediaWerstak">
+<meta property="og:title" content="Панель управления — MediaWerstak">
+<meta property="og:description" content="Подключённые аккаунты, публикации по площадкам, очередь и план по веткам.">
+<meta property="og:image" content="https://mediawerstak.com/assets/og.png">
+<meta name="theme-color" content="#0B101B">
+<link rel="icon" href="assets/favicon_48.png" sizes="48x48">
+<link rel="apple-touch-icon" href="assets/avatar_165.png">
+<style>
+:root{--bg:#0B101B;--bg2:#0E1522;--card:rgba(255,255,255,.045);--line:rgba(255,255,255,.10);
+--text:#F3F5F9;--muted:#A9B4C6;--gold:#FFD98A;--gold2:#E9A24B;--mint:#68D8BC}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+font:400 17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;
+-webkit-font-smoothing:antialiased}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+background:radial-gradient(900px 600px at 12% -10%,rgba(233,162,75,.16),transparent 60%),
+radial-gradient(800px 600px at 92% 8%,rgba(104,216,188,.12),transparent 60%),
+radial-gradient(700px 500px at 50% 110%,rgba(143,201,255,.10),transparent 60%)}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1120px,92vw);margin:0 auto}
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+background:rgba(11,16,27,.72);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:14px;padding:14px 0}
+.nav img{width:46px;height:46px;border-radius:11px;box-shadow:0 6px 20px rgba(0,0,0,.45)}
+.brandname{font-weight:700;letter-spacing:.14em;font-size:15px;text-transform:uppercase}
+.brandname span{color:var(--gold)}
+.nav .links{margin-left:auto;display:flex;gap:22px;font-size:14px;color:var(--muted)}
+.nav .links a:hover{color:var(--text)}
+@media(max-width:760px){.nav .links{display:none}}
+.hero{padding:52px 0 26px;text-align:center}
+.hero .logo{width:124px;height:124px;border-radius:30px;margin:0 auto 22px;display:block;
+box-shadow:0 30px 80px rgba(233,162,75,.28);animation:rise .9s ease both}
+h1{font-size:clamp(34px,6vw,64px);line-height:1.05;margin:0 0 14px;letter-spacing:-.02em}
+h1 em{font-style:normal;background:linear-gradient(92deg,var(--gold),var(--gold2) 55%,var(--mint));
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.tagline{color:var(--muted);font-size:clamp(15px,2.2vw,20px);margin:0 auto;max-width:640px}
+.pill{display:inline-block;margin-bottom:18px;padding:7px 14px;border:1px solid var(--line);
+border-radius:999px;font-size:12px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
+.actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.btn{padding:14px 24px;border-radius:14px;font-weight:600;font-size:15px;border:1px solid var(--line);
+transition:transform .18s ease,border-color .18s ease}
+.btn:hover{transform:translateY(-2px);border-color:rgba(255,217,138,.55)}
+.btn.main{background:linear-gradient(92deg,var(--gold),var(--gold2));color:#16120A;border:0;
+box-shadow:0 16px 40px rgba(233,162,75,.28)}
+section{padding:44px 0}
+h2{font-size:clamp(24px,3.4vw,36px);margin:0 0 10px;letter-spacing:-.01em}
+.lead{color:var(--muted);margin:0 0 30px;max-width:720px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(258px,1fr))}
+.card{position:relative;padding:22px;border:1px solid var(--line);border-radius:20px;
+background:var(--card);transition:transform .2s ease,border-color .2s ease,background .2s ease;overflow:hidden}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,217,138,.4);background:rgba(255,255,255,.07)}
+.card .num{font-size:12px;letter-spacing:.2em;color:var(--muted)}
+.card h3{margin:10px 0 8px;font-size:20px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.card .bar{position:absolute;left:0;top:0;height:3px;width:100%;opacity:.85}
+.socials{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.social{display:flex;align-items:center;justify-content:space-between;padding:15px 18px;
+border:1px solid var(--line);border-radius:14px;background:var(--card);font-size:15px}
+.social .st{font-size:12px;color:var(--muted);letter-spacing:.08em}
+.social.on .st{color:var(--mint)}
+.social.off{opacity:.55}
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));counter-reset:s}
+.step{padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--card)}
+.step:before{counter-increment:s;content:"0" counter(s);display:block;font-size:12px;
+letter-spacing:.2em;color:var(--gold);margin-bottom:10px}
+.step h4{margin:0 0 8px;font-size:17px}.step p{margin:0;color:var(--muted);font-size:15px}
+ul.clean{list-style:none;padding:0;margin:0}
+ul.clean li{padding:11px 0;border-bottom:1px dashed rgba(255,255,255,.10);color:var(--muted)}
+ul.clean li:last-child{border:0}
+ul.clean li b{color:var(--text);font-weight:600}
+.topic-hero{padding:64px 0 20px}
+.topic-hero .crumb{font-size:13px;color:var(--muted);letter-spacing:.06em;margin-bottom:18px}
+.topic-hero h1{font-size:clamp(30px,5vw,52px)}
+.two{display:grid;gap:28px;grid-template-columns:1.25fr .75fr;align-items:start}
+@media(max-width:860px){.two{grid-template-columns:1fr}}
+.panel{padding:24px;border:1px solid var(--line);border-radius:20px;background:var(--card)}
+.panel h4{margin:0 0 14px;font-size:15px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase}
+.soon{display:inline-block;padding:5px 11px;border-radius:999px;border:1px solid var(--line);
+font-size:12px;color:var(--muted)}
+footer{padding:44px 0 60px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+.foot{display:flex;gap:18px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.foot .mw{width:54px;height:54px;border-radius:14px}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@keyframes rise{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
+.reveal{opacity:1;transform:none}}
+</style><style>
+.note{color:var(--muted);font-size:14px;margin:10px 0 26px;max-width:760px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin:0 0 32px}
+.stat{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px}
+.stat .sv{font-size:32px;font-weight:700;background:linear-gradient(90deg,#FFD98A,#68D8BC);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .sl{color:var(--muted);font-size:13px;margin-top:6px}
+.ph{font-size:20px;margin:34px 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.chip{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#F3F5F9;
+border-radius:999px;padding:8px 14px;font-size:13px;cursor:pointer;font-family:inherit}
+.chip.active{background:rgba(255,217,138,.16);border-color:rgba(255,217,138,.5);color:#FFD98A}
+.ptable{width:100%;border-collapse:collapse;font-size:14px}
+.ptable th{text-align:left;color:var(--muted);font-weight:500;font-size:12px;letter-spacing:.06em;
+text-transform:uppercase;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.1)}
+.ptable td{padding:12px;border-bottom:1px solid rgba(255,255,255,.06)}
+.ptable tr:last-child td{border-bottom:0}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#CFE3FF}
+.num-cell{color:#68D8BC;font-weight:600}
+.pill{font-size:12px;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.pill.on{background:rgba(104,216,188,.14);color:#68D8BC}
+.pill.wait{background:rgba(255,217,138,.14);color:#FFD98A}
+.pill.off{background:rgba(255,255,255,.07);color:var(--muted)}
+.queue{display:grid;gap:10px}
+.qitem{display:grid;grid-template-columns:130px 1fr 130px 1fr;gap:12px;align-items:center;
+background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px}
+.qtime{color:var(--gold);font-size:13px}
+.qbranch{font-weight:600}
+.qtype{color:var(--muted);font-size:13px}
+.qplat{color:#CFE3FF;font-size:13px}
+.inp{width:64px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+color:#F3F5F9;border-radius:8px;padding:6px 8px;font-family:inherit;font-size:13px}
+.btn-mini{background:rgba(255,217,138,.14);border:1px solid rgba(255,217,138,.45);color:#FFD98A;
+border-radius:10px;padding:8px 12px;font-size:13px;cursor:pointer;font-family:inherit;white-space:nowrap}
+.safety{margin-top:34px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);
+border-left:3px solid #68D8BC;border-radius:12px;padding:18px;color:var(--muted);font-size:14px;line-height:1.6}
+@media(max-width:640px){.qitem{grid-template-columns:1fr;gap:4px}}
+</style>
+<script>
+document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{{
+  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));
+  c.classList.add('active');
+  const f=c.dataset.filter;
+  document.querySelectorAll('#ptable tbody tr').forEach(r=>{{
+    r.style.display=(f==='all'||r.dataset.branch===f)?'':'none';
+  }});
+}}));
+document.querySelectorAll('.btn-mini').forEach(b=>b.addEventListener('click',()=>{{
+  const old=b.textContent; b.textContent='план поставлен ✓'; b.disabled=true;
+  setTimeout(()=>{{b.textContent=old;b.disabled=false;}},1800);
+}}));
+</script>
+</head>
+<body>
+<header><div class="wrap nav">
+<a href="index.html" style="display:flex;align-items:center;gap:12px">
+<img src="assets/logo.png" alt="MediaWerstak">
+<span class="brandname">Media<span>Werstak</span></span></a>
+<nav class="links">
+<a href="index.html#service">Сервис</a>
+<a href="index.html#plans">Варианты</a>
+<a href="panel.html">Панель</a>
+<a href="index.html#topics">Пример работы</a>
+<a href="index.html#how">Как это работает</a>
+<a href="about.html">О проекте</a>
+<a href="contact.html">Контакты</a>
+</nav></div></header>
+
+<section style="padding-top:40px"><div class="wrap">
+<div class="num">ПАНЕЛЬ</div>
+<h2>Панель управления</h2>
+<p class="lead">Подключённые аккаунты, публикации по площадкам, очередь и план — в одном месте.
+Планируете ветку целиком и выпускаете пост сразу во все её площадки.</p>
+<p class="note">Это демонстрация интерфейса: данные тестовые. <b>Пароли и токены в панели не хранятся
+и не показываются</b> — только факт подключения, счётчики и очередь.</p>
+
+<div class="stats">
+<div class="stat"><div class="sv">7</div><div class="sl">аккаунтов подключено</div></div>
+<div class="stat"><div class="sv">111</div><div class="sl">публикаций за 7 дней</div></div>
+<div class="stat"><div class="sv">6</div><div class="sl">в очереди</div></div>
+<div class="stat"><div class="sv">3</div><div class="sl">ждут подключения</div></div>
+</div>
+
+<h3 class="ph">Аккаунты и площадки</h3>
+<div class="chips"><button class="chip active" data-filter="all">Все ветки</button><button class="chip" data-filter="Здоровье">Здоровье</button><button class="chip" data-filter="Наука и природа">Наука и природа</button><button class="chip" data-filter="Факты">Факты</button><button class="chip" data-filter="Хорошие новости">Хорошие новости</button><button class="chip" data-filter="Эстетика">Эстетика</button></div>
+<div style="overflow-x:auto"><table class="ptable" id="ptable">
+<thead><tr><th>Ветка</th><th>Площадка</th><th>Аккаунт</th><th>Статус</th><th>Постов / 7 дней</th></tr></thead>
+<tbody><tr data-branch="Хорошие новости" data-plat="Telegram">
+<td><b>Хорошие новости</b></td><td>Telegram</td><td class="mono">@goodnews_brief</td>
+<td><span class="pill on">подключён</span></td>
+<td class="num-cell">21</td></tr><tr data-branch="Хорошие новости" data-plat="Instagram">
+<td><b>Хорошие новости</b></td><td>Instagram</td><td class="mono">@goodnews.brief</td>
+<td><span class="pill on">подключён</span></td>
+<td class="num-cell">18</td></tr><tr data-branch="Хорошие новости" data-plat="TikTok">
+<td><b>Хорошие новости</b></td><td>TikTok</td><td class="mono">@goodnews.brief</td>
+<td><span class="pill wait">ожидает входа</span></td>
+<td class="num-cell">—</td></tr><tr data-branch="Наука и природа" data-plat="Telegram">
+<td><b>Наука и природа</b></td><td>Telegram</td><td class="mono">@naukbrief</td>
+<td><span class="pill on">подключён</span></td>
+<td class="num-cell">14</td></tr><tr data-branch="Наука и природа" data-plat="YouTube">
+<td><b>Наука и природа</b></td><td>YouTube</td><td class="mono">@naukbrief</td>
+<td><span class="pill wait">ожидает входа</span></td>
+<td class="num-cell">—</td></tr><tr data-branch="Эстетика" data-plat="Pinterest">
+<td><b>Эстетика</b></td><td>Pinterest</td><td class="mono">@estetikabrief</td>
+<td><span class="pill on">подключён</span></td>
+<td class="num-cell">19</td></tr><tr data-branch="Эстетика" data-plat="Instagram">
+<td><b>Эстетика</b></td><td>Instagram</td><td class="mono">@estetikabrief</td>
+<td><span class="pill on">подключён</span></td>
+<td class="num-cell">12</td></tr><tr data-branch="Факты" data-plat="Telegram">
+<td><b>Факты</b></td><td>Telegram</td><td class="mono">@faktybrief</td>
+<td><span class="pill on">подключён</span></td>
+<td class="num-cell">16</td></tr><tr data-branch="Факты" data-plat="X">
+<td><b>Факты</b></td><td>X</td><td class="mono">@faktybrief</td>
+<td><span class="pill off">не подключён</span></td>
+<td class="num-cell">—</td></tr><tr data-branch="Здоровье" data-plat="Telegram">
+<td><b>Здоровье</b></td><td>Telegram</td><td class="mono">@zdoroviebrief</td>
+<td><span class="pill on">подключён</span></td>
+<td class="num-cell">11</td></tr></tbody></table></div>
+
+<h3 class="ph">Очередь публикаций</h3>
+<div class="queue"><div class="qitem"><span class="qtime">сегодня 18:30</span>
+<span class="qbranch">Хорошие новости</span><span class="qtype">ролик 9:16</span>
+<span class="qplat">TikTok · Instagram · YouTube</span></div><div class="qitem"><span class="qtime">сегодня 20:00</span>
+<span class="qbranch">Хорошие новости</span><span class="qtype">пост с фото</span>
+<span class="qplat">Telegram</span></div><div class="qitem"><span class="qtime">завтра 10:00</span>
+<span class="qbranch">Наука и природа</span><span class="qtype">карусель 4:5</span>
+<span class="qplat">Instagram · Pinterest</span></div><div class="qitem"><span class="qtime">завтра 12:30</span>
+<span class="qbranch">Эстетика</span><span class="qtype">карусель 4:5</span>
+<span class="qplat">Pinterest · Instagram</span></div><div class="qitem"><span class="qtime">завтра 19:00</span>
+<span class="qbranch">Факты</span><span class="qtype">пост с фото</span>
+<span class="qplat">Telegram</span></div><div class="qitem"><span class="qtime">21.10 09:00</span>
+<span class="qbranch">Здоровье</span><span class="qtype">ролик 9:16</span>
+<span class="qplat">TikTok · YouTube</span></div></div>
+
+<h3 class="ph">План по ветке</h3>
+<p class="lead" style="margin-bottom:16px">Задаёте, сколько постов в день и сколько генераций в неделю
+нужно ветке. Кнопка справа ставит план сразу на все площадки этой ветки.</p>
+<div style="overflow-x:auto"><table class="ptable">
+<thead><tr><th>Ветка</th><th>Публикаций</th><th>Генерация контента</th><th></th></tr></thead>
+<tbody><tr><td><b>Хорошие новости</b></td>
+<td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
+<td><input class="inp" type="number" value="21" min="0" max="200"> постов / неделя</td>
+<td><button class="btn-mini" data-plan="Хорошие новости">во всю ветку →</button></td></tr><tr><td><b>Наука и природа</b></td>
+<td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
+<td><input class="inp" type="number" value="14" min="0" max="200"> постов / неделя</td>
+<td><button class="btn-mini" data-plan="Наука и природа">во всю ветку →</button></td></tr><tr><td><b>Эстетика</b></td>
+<td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
+<td><input class="inp" type="number" value="19" min="0" max="200"> постов / неделя</td>
+<td><button class="btn-mini" data-plan="Эстетика">во всю ветку →</button></td></tr><tr><td><b>Мир</b></td>
+<td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
+<td><input class="inp" type="number" value="14" min="0" max="200"> постов / неделя</td>
+<td><button class="btn-mini" data-plan="Мир">во всю ветку →</button></td></tr><tr><td><b>Жизненное</b></td>
+<td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
+<td><input class="inp" type="number" value="14" min="0" max="200"> постов / неделя</td>
+<td><button class="btn-mini" data-plan="Жизненное">во всю ветку →</button></td></tr><tr><td><b>Факты</b></td>
+<td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
+<td><input class="inp" type="number" value="16" min="0" max="200"> постов / неделя</td>
+<td><button class="btn-mini" data-plan="Факты">во всю ветку →</button></td></tr><tr><td><b>Бизнес</b></td>
+<td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
+<td><input class="inp" type="number" value="12" min="0" max="200"> постов / неделя</td>
+<td><button class="btn-mini" data-plan="Бизнес">во всю ветку →</button></td></tr><tr><td><b>Здоровье</b></td>
+<td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
+<td><input class="inp" type="number" value="11" min="0" max="200"> постов / неделя</td>
+<td><button class="btn-mini" data-plan="Здоровье">во всю ветку →</button></td></tr><tr><td><b>Душевное</b></td>
+<td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
+<td><input class="inp" type="number" value="10" min="0" max="200"> постов / неделя</td>
+<td><button class="btn-mini" data-plan="Душевное">во всю ветку →</button></td></tr><tr><td><b>Биохакинг</b></td>
+<td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
+<td><input class="inp" type="number" value="10" min="0" max="200"> постов / неделя</td>
+<td><button class="btn-mini" data-plan="Биохакинг">во всю ветку →</button></td></tr></tbody></table></div>
+
+<div class="safety">
+<b>Безопасность.</b> Панель показывает только то, что можно показывать: площадка, ник, статус входа,
+счётчики и очередь. Ключи, пароли и коды двухфакторной проверки хранятся отдельно и в интерфейс не попадают.
+Любое действие — публикация, план, подключение — попадает в журнал: кто, что, когда.
+</div>
+<p style="margin-top:26px"><a class="btn btn-gold" href="contact.html">Хочу такую панель</a>
+<a class="btn btn-ghost" href="index.html#plans">Как это получить</a></p>
+</div></section>
+<footer><div class="wrap foot">
+<div style="display:flex;align-items:center;gap:14px">
+<img class="mw" src="assets/mw.png" alt="MediaWerstak">
+<div><b style="color:#F3F5F9">MediaWerstak</b> · CONTENT FACTORY<br>Not your feed · Не ваша лента</div></div>
+<div style="text-align:right"><a href="https://t.me/mediawerstak" target="_blank" rel="noopener">Telegram</a> · <a href="https://www.pinterest.com/mediawerstak" target="_blank" rel="noopener">Pinterest</a><br>
+<a href="https://link.mediawerstak.com" target="_blank" rel="noopener" style="color:var(--gold)">
+все площадки → link.mediawerstak.com</a></div>
+</div></footer>
+<script>
+(function(){var els=document.querySelectorAll('.reveal');
+if(!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('in')});return}
+var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+els.forEach(function(e){io.observe(e)});})();
+</script>
+</body></html>
