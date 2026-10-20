@@ -122,6 +122,15 @@ text-transform:uppercase;padding:10px 12px;border-bottom:1px solid rgba(255,255,
 background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px}
 .qtime{color:var(--gold);font-size:13px}
 .qbranch{font-weight:600}
+.blink{color:#F3F5F9;text-decoration:none;display:inline-flex;gap:6px;align-items:center}
+.blink:hover{color:#FFD98A}
+.barr{color:#FFD98A;opacity:.65;font-size:12px}
+.pagegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.plink{display:block;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);
+border-radius:12px;padding:14px 16px;text-decoration:none;transition:border-color .15s,background .15s}
+.plink:hover{border-color:rgba(255,217,138,.45);background:rgba(255,217,138,.06)}
+.plink span{display:block;color:#F3F5F9;font-weight:600;font-size:15px}
+.plink em{display:block;color:var(--muted);font-style:normal;font-size:12px;margin-top:4px}
 .qtype{color:var(--muted);font-size:13px}
 .qplat{color:#CFE3FF;font-size:13px}
 .inp{width:64px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
@@ -182,34 +191,34 @@ document.querySelectorAll('.btn-mini').forEach(b=>b.addEventListener('click',()=
 <div style="overflow-x:auto"><table class="ptable" id="ptable">
 <thead><tr><th>Ветка</th><th>Площадка</th><th>Аккаунт</th><th>Статус</th><th>Постов / 7 дней</th></tr></thead>
 <tbody><tr data-branch="Хорошие новости" data-plat="Telegram">
-<td><b>Хорошие новости</b></td><td>Telegram</td><td class="mono">@goodnews_brief</td>
+<td><a class="blink" href="news.html"><b>Хорошие новости</b><span class="barr">→</span></a></td><td>Telegram</td><td class="mono">@goodnews_brief</td>
 <td><span class="pill on">подключён</span></td>
 <td class="num-cell">21</td></tr><tr data-branch="Хорошие новости" data-plat="Instagram">
-<td><b>Хорошие новости</b></td><td>Instagram</td><td class="mono">@goodnews.brief</td>
+<td><a class="blink" href="news.html"><b>Хорошие новости</b><span class="barr">→</span></a></td><td>Instagram</td><td class="mono">@goodnews.brief</td>
 <td><span class="pill on">подключён</span></td>
 <td class="num-cell">18</td></tr><tr data-branch="Хорошие новости" data-plat="TikTok">
-<td><b>Хорошие новости</b></td><td>TikTok</td><td class="mono">@goodnews.brief</td>
+<td><a class="blink" href="news.html"><b>Хорошие новости</b><span class="barr">→</span></a></td><td>TikTok</td><td class="mono">@goodnews.brief</td>
 <td><span class="pill wait">ожидает входа</span></td>
 <td class="num-cell">—</td></tr><tr data-branch="Наука и природа" data-plat="Telegram">
-<td><b>Наука и природа</b></td><td>Telegram</td><td class="mono">@naukbrief</td>
+<td><a class="blink" href="science.html"><b>Наука и природа</b><span class="barr">→</span></a></td><td>Telegram</td><td class="mono">@naukbrief</td>
 <td><span class="pill on">подключён</span></td>
 <td class="num-cell">14</td></tr><tr data-branch="Наука и природа" data-plat="YouTube">
-<td><b>Наука и природа</b></td><td>YouTube</td><td class="mono">@naukbrief</td>
+<td><a class="blink" href="science.html"><b>Наука и природа</b><span class="barr">→</span></a></td><td>YouTube</td><td class="mono">@naukbrief</td>
 <td><span class="pill wait">ожидает входа</span></td>
 <td class="num-cell">—</td></tr><tr data-branch="Эстетика" data-plat="Pinterest">
-<td><b>Эстетика</b></td><td>Pinterest</td><td class="mono">@estetikabrief</td>
+<td><a class="blink" href="glam.html"><b>Эстетика</b><span class="barr">→</span></a></td><td>Pinterest</td><td class="mono">@estetikabrief</td>
 <td><span class="pill on">подключён</span></td>
 <td class="num-cell">19</td></tr><tr data-branch="Эстетика" data-plat="Instagram">
-<td><b>Эстетика</b></td><td>Instagram</td><td class="mono">@estetikabrief</td>
+<td><a class="blink" href="glam.html"><b>Эстетика</b><span class="barr">→</span></a></td><td>Instagram</td><td class="mono">@estetikabrief</td>
 <td><span class="pill on">подключён</span></td>
 <td class="num-cell">12</td></tr><tr data-branch="Факты" data-plat="Telegram">
-<td><b>Факты</b></td><td>Telegram</td><td class="mono">@faktybrief</td>
+<td><a class="blink" href="facts.html"><b>Факты</b><span class="barr">→</span></a></td><td>Telegram</td><td class="mono">@faktybrief</td>
 <td><span class="pill on">подключён</span></td>
 <td class="num-cell">16</td></tr><tr data-branch="Факты" data-plat="X">
-<td><b>Факты</b></td><td>X</td><td class="mono">@faktybrief</td>
+<td><a class="blink" href="facts.html"><b>Факты</b><span class="barr">→</span></a></td><td>X</td><td class="mono">@faktybrief</td>
 <td><span class="pill off">не подключён</span></td>
 <td class="num-cell">—</td></tr><tr data-branch="Здоровье" data-plat="Telegram">
-<td><b>Здоровье</b></td><td>Telegram</td><td class="mono">@zdoroviebrief</td>
+<td><a class="blink" href="health.html"><b>Здоровье</b><span class="barr">→</span></a></td><td>Telegram</td><td class="mono">@zdoroviebrief</td>
 <td><span class="pill on">подключён</span></td>
 <td class="num-cell">11</td></tr></tbody></table></div>
 
@@ -233,37 +242,49 @@ document.querySelectorAll('.btn-mini').forEach(b=>b.addEventListener('click',()=
 нужно ветке. Кнопка справа ставит план сразу на все площадки этой ветки.</p>
 <div style="overflow-x:auto"><table class="ptable">
 <thead><tr><th>Ветка</th><th>Публикаций</th><th>Генерация контента</th><th></th></tr></thead>
-<tbody><tr><td><b>Хорошие новости</b></td>
+<tbody><tr><td><a class="blink" href="news.html"><b>Хорошие новости</b><span class="barr">→</span></a></td>
 <td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
 <td><input class="inp" type="number" value="21" min="0" max="200"> постов / неделя</td>
-<td><button class="btn-mini" data-plan="Хорошие новости">во всю ветку →</button></td></tr><tr><td><b>Наука и природа</b></td>
+<td><button class="btn-mini" data-plan="Хорошие новости">во всю ветку →</button></td></tr><tr><td><a class="blink" href="science.html"><b>Наука и природа</b><span class="barr">→</span></a></td>
 <td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
 <td><input class="inp" type="number" value="14" min="0" max="200"> постов / неделя</td>
-<td><button class="btn-mini" data-plan="Наука и природа">во всю ветку →</button></td></tr><tr><td><b>Эстетика</b></td>
+<td><button class="btn-mini" data-plan="Наука и природа">во всю ветку →</button></td></tr><tr><td><a class="blink" href="glam.html"><b>Эстетика</b><span class="barr">→</span></a></td>
 <td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
 <td><input class="inp" type="number" value="19" min="0" max="200"> постов / неделя</td>
-<td><button class="btn-mini" data-plan="Эстетика">во всю ветку →</button></td></tr><tr><td><b>Мир</b></td>
+<td><button class="btn-mini" data-plan="Эстетика">во всю ветку →</button></td></tr><tr><td><a class="blink" href="world.html"><b>Мир</b><span class="barr">→</span></a></td>
 <td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
 <td><input class="inp" type="number" value="14" min="0" max="200"> постов / неделя</td>
-<td><button class="btn-mini" data-plan="Мир">во всю ветку →</button></td></tr><tr><td><b>Жизненное</b></td>
+<td><button class="btn-mini" data-plan="Мир">во всю ветку →</button></td></tr><tr><td><a class="blink" href="life.html"><b>Жизненное</b><span class="barr">→</span></a></td>
 <td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
 <td><input class="inp" type="number" value="14" min="0" max="200"> постов / неделя</td>
-<td><button class="btn-mini" data-plan="Жизненное">во всю ветку →</button></td></tr><tr><td><b>Факты</b></td>
+<td><button class="btn-mini" data-plan="Жизненное">во всю ветку →</button></td></tr><tr><td><a class="blink" href="facts.html"><b>Факты</b><span class="barr">→</span></a></td>
 <td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
 <td><input class="inp" type="number" value="16" min="0" max="200"> постов / неделя</td>
-<td><button class="btn-mini" data-plan="Факты">во всю ветку →</button></td></tr><tr><td><b>Бизнес</b></td>
+<td><button class="btn-mini" data-plan="Факты">во всю ветку →</button></td></tr><tr><td><a class="blink" href="business.html"><b>Бизнес</b><span class="barr">→</span></a></td>
 <td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
 <td><input class="inp" type="number" value="12" min="0" max="200"> постов / неделя</td>
-<td><button class="btn-mini" data-plan="Бизнес">во всю ветку →</button></td></tr><tr><td><b>Здоровье</b></td>
+<td><button class="btn-mini" data-plan="Бизнес">во всю ветку →</button></td></tr><tr><td><a class="blink" href="health.html"><b>Здоровье</b><span class="barr">→</span></a></td>
 <td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
 <td><input class="inp" type="number" value="11" min="0" max="200"> постов / неделя</td>
-<td><button class="btn-mini" data-plan="Здоровье">во всю ветку →</button></td></tr><tr><td><b>Душевное</b></td>
+<td><button class="btn-mini" data-plan="Здоровье">во всю ветку →</button></td></tr><tr><td><a class="blink" href="soul.html"><b>Душевные цитаты</b><span class="barr">→</span></a></td>
 <td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
 <td><input class="inp" type="number" value="10" min="0" max="200"> постов / неделя</td>
-<td><button class="btn-mini" data-plan="Душевное">во всю ветку →</button></td></tr><tr><td><b>Биохакинг</b></td>
+<td><button class="btn-mini" data-plan="Душевные цитаты">во всю ветку →</button></td></tr><tr><td><a class="blink" href="bio.html"><b>Биохакинг</b><span class="barr">→</span></a></td>
 <td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
 <td><input class="inp" type="number" value="10" min="0" max="200"> постов / неделя</td>
 <td><button class="btn-mini" data-plan="Биохакинг">во всю ветку →</button></td></tr></tbody></table></div>
+
+
+<h3 class="ph">Страницы сайта</h3>
+<p class="lead" style="margin-bottom:14px">Всё, что описано на сайте, — открывается в один клик.
+Из панели уходим в нужную ветку, чтобы посмотреть, как выглядит результат.</p>
+<div class="pagegrid">
+<a class="plink" href="index.html"><span>Главная</span><em>о сервисе и вариантах</em></a>
+<a class="plink" href="news.html"><span>Хорошие новости</span><em>01 · тематика</em></a><a class="plink" href="science.html"><span>Наука и природа</span><em>02 · тематика</em></a><a class="plink" href="glam.html"><span>Эстетика</span><em>03 · тематика</em></a><a class="plink" href="world.html"><span>Мир</span><em>04 · тематика</em></a><a class="plink" href="life.html"><span>Жизненное</span><em>05 · тематика</em></a><a class="plink" href="facts.html"><span>Факты</span><em>06 · тематика</em></a><a class="plink" href="business.html"><span>Бизнес</span><em>07 · тематика</em></a><a class="plink" href="health.html"><span>Здоровье</span><em>08 · тематика</em></a><a class="plink" href="soul.html"><span>Душевные цитаты</span><em>09 · тематика</em></a><a class="plink" href="bio.html"><span>Биохакинг</span><em>10 · тематика</em></a>
+<a class="plink" href="about.html"><span>О проекте</span><em>кто делает</em></a>
+<a class="plink" href="contact.html"><span>Контакты</span><em>написать нам</em></a>
+<a class="plink" href="https://link.mediawerstak.com" target="_blank" rel="noopener"><span>Линкер</span><em>все площадки</em></a>
+</div>
 
 <div class="safety">
 <b>Безопасность.</b> Панель показывает только то, что можно показывать: площадка, ник, статус входа,
