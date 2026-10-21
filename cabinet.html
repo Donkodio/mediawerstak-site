@@ -12,8 +12,11 @@
 <meta property="og:description" content="Что сервис сделал по каждой соцсети, рекомендации и подключение аккаунтов.">
 <meta property="og:image" content="https://mediawerstak.com/assets/og.png">
 <meta name="theme-color" content="#0B101B">
-<link rel="icon" href="assets/favicon_48.png" sizes="48x48">
-<link rel="apple-touch-icon" href="assets/avatar_165.png">
+<link rel="icon" href="assets/favicon_32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/favicon_16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="assets/favicon_48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/apple_touch_180.png">
 <style>
 :root{--bg:#0B101B;--bg2:#0E1522;--card:rgba(255,255,255,.045);--line:rgba(255,255,255,.10);
 --text:#F3F5F9;--muted:#A9B4C6;--gold:#FFD98A;--gold2:#E9A24B;--mint:#68D8BC}
@@ -91,6 +94,20 @@ footer{padding:44px 0 60px;border-top:1px solid var(--line);color:var(--muted);f
 .foot .mw{width:54px;height:54px;border-radius:14px}
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
+.ctabox{margin-top:6px;padding:30px;border-radius:24px;border:1px solid rgba(255,217,138,.35);
+background:linear-gradient(160deg,rgba(233,162,75,.15),rgba(104,216,188,.07) 62%,rgba(255,255,255,.03))}
+.ctabox h2{margin-bottom:10px}
+.apply{margin:18px 0 0;padding:16px 18px;border-radius:14px;border:1px dashed rgba(255,255,255,.20);
+background:rgba(0,0,0,.25);color:var(--muted);white-space:pre-wrap;
+font:400 14px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.copybtn{margin-top:12px;cursor:pointer;padding:11px 20px;border-radius:12px;border:1px solid var(--line);
+background:transparent;color:var(--text);font-family:inherit;font-size:14px;font-weight:600;
+transition:border-color .18s ease}
+.copybtn:hover{border-color:rgba(255,217,138,.55)}
+.note{color:var(--muted);font-size:13px;margin:14px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 0;padding:0;list-style:none}
+.chips li{padding:9px 14px;border:1px solid var(--line);border-radius:999px;font-size:14px;color:var(--muted)}
+.chips li b{color:var(--text);font-weight:600}
 @keyframes rise{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
 .reveal{opacity:1;transform:none}}
@@ -166,10 +183,10 @@ document.addEventListener('DOMContentLoaded', () => {
 <body>
 <header><div class="wrap nav">
 <a href="index.html" style="display:flex;align-items:center;gap:12px">
-<img src="assets/logo.png" alt="MediaWerstak">
+<img src="assets/logo_small.png" width="46" height="46" alt="MediaWerstak">
 <span class="brandname">Media<span>Werstak</span></span></a>
 <nav class="links">
-<a href="index.html#service">Сервис</a>
+<a href="agent.html">Агент</a>
 <a href="index.html#plans">Варианты</a>
 <a href="cabinet.html">Кабинет</a>
 <a href="panel.html">Дашборд</a>
@@ -221,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </div></section>
 <footer><div class="wrap foot">
 <div style="display:flex;align-items:center;gap:14px">
-<img class="mw" src="assets/mw.png" alt="MediaWerstak">
+<img class="mw" src="assets/logo_small.png" width="54" height="54" alt="MediaWerstak">
 <div><b style="color:#F3F5F9">MediaWerstak</b> · CONTENT FACTORY<br>Not your feed · Не ваша лента</div></div>
 <div style="text-align:right"><a href="https://t.me/mediawerstak" target="_blank" rel="noopener">Telegram</a> · <a href="https://www.pinterest.com/mediawerstak" target="_blank" rel="noopener">Pinterest</a><br>
 <a href="https://link.mediawerstak.com" target="_blank" rel="noopener" style="color:var(--gold)">
@@ -232,5 +249,16 @@ document.addEventListener('DOMContentLoaded', () => {
 if(!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('in')});return}
 var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
 els.forEach(function(e){io.observe(e)});})();
+(function(){document.querySelectorAll('[data-copy]').forEach(function(b){
+var t=document.querySelector(b.getAttribute('data-copy'));if(!t)return;
+b.addEventListener('click',function(){
+var label=b.textContent;
+function done(){b.textContent='Скопировано';setTimeout(function(){b.textContent=label},1600)}
+function fallback(){var r=document.createRange();r.selectNodeContents(t);
+var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+try{document.execCommand('copy');done()}catch(e){}}
+if(navigator.clipboard&&navigator.clipboard.writeText){
+navigator.clipboard.writeText(t.innerText).then(done,fallback)}else{fallback()}
+})});})();
 </script>
 </body></html>
