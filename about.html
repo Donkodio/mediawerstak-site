@@ -54,9 +54,11 @@ background:rgba(11,16,27,.72);border-bottom:1px solid var(--line)}
 .nav img{width:46px;height:46px;border-radius:11px;box-shadow:0 6px 20px rgba(0,0,0,.45)}
 .brandname{font-weight:700;letter-spacing:.14em;font-size:15px;text-transform:uppercase}
 .brandname span{color:var(--gold)}
-.nav .links{margin-left:auto;display:flex;gap:22px;font-size:14px;color:var(--muted)}
+.nav .links{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end;
+font-size:14px;color:var(--muted)}
 .nav .links a:hover{color:var(--text)}
-@media(max-width:760px){.nav .links{display:none}}
+@media(max-width:760px){.nav{flex-wrap:wrap}.nav .links{margin-left:0;width:100%;gap:14px;
+font-size:13px;padding-top:8px;justify-content:flex-start}}
 .hero{padding:52px 0 26px;text-align:center}
 .hero .logo{width:124px;height:124px;border-radius:30px;margin:0 auto 22px;display:block;
 box-shadow:0 30px 80px rgba(233,162,75,.28);animation:rise .9s ease both}
@@ -126,6 +128,36 @@ transition:border-color .18s ease}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 0;padding:0;list-style:none}
 .chips li{padding:9px 14px;border:1px solid var(--line);border-radius:999px;font-size:14px;color:var(--muted)}
 .chips li b{color:var(--text);font-weight:600}
+.legal{padding:24px 28px;border:1px solid var(--line);border-radius:20px;background:var(--card);
+margin-bottom:18px}
+.legal h3{margin:0 0 10px;font-size:21px}
+.legal h4{margin:20px 0 8px;font-size:14px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase}
+.legal p{margin:0 0 12px;color:var(--muted)}
+.legal ul{margin:0 0 12px;padding-left:20px;color:var(--muted)}
+.legal li{margin-bottom:8px}
+.legal li b{color:var(--text)}
+.anchors{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0 0 26px;list-style:none}
+.anchors a{padding:9px 14px;border:1px solid var(--line);border-radius:999px;font-size:14px;
+color:var(--muted)}
+.anchors a:hover{border-color:rgba(255,217,138,.55);color:var(--text)}
+.kv{margin:0;padding:0;list-style:none}
+.kv li{display:flex;justify-content:space-between;gap:14px;padding:11px 0;font-size:15px;
+border-bottom:1px dashed rgba(255,255,255,.10);color:var(--muted)}
+.kv li:last-child{border:0}
+.kv li b{color:var(--text);font-weight:600}
+.faq{padding:18px 22px;border:1px solid var(--line);border-radius:18px;background:var(--card);
+margin-bottom:12px}
+.faq summary{cursor:pointer;font-weight:600;font-size:16px;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";float:right;color:var(--gold);font-weight:400}
+.faq[open] summary:after{content:"–"}
+.faq p{margin:12px 0 0;color:var(--muted);font-size:15px}
+.err{padding:76px 0 26px;text-align:center}
+.err .code{font-size:clamp(84px,18vw,164px);font-weight:700;line-height:1;letter-spacing:-.04em;
+background:linear-gradient(92deg,var(--gold),var(--gold2) 55%,var(--mint));
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.footline{margin-top:22px;display:flex;gap:16px;flex-wrap:wrap;font-size:13px}
+.footline a:hover{color:var(--text)}
 @keyframes rise{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
 .reveal{opacity:1;transform:none}}
@@ -138,6 +170,7 @@ transition:border-color .18s ease}
 <span class="brandname">Media<span>Werstak</span></span></a>
 <nav class="links">
 <a href="agent.html">Агент</a>
+<a href="catalog.html">Каталог</a>
 <a href="index.html#plans">Варианты</a>
 <a href="cabinet.html">Кабинет</a>
 <a href="panel.html">Дашборд</a>
@@ -194,6 +227,14 @@ transition:border-color .18s ease}
 <div style="text-align:right"><a href="https://t.me/mediawerstak" target="_blank" rel="noopener">Telegram</a> · <a href="https://www.pinterest.com/mediawerstak" target="_blank" rel="noopener">Pinterest</a><br>
 <a href="https://link.mediawerstak.com" target="_blank" rel="noopener" style="color:var(--gold)">
 все площадки → link.mediawerstak.com</a></div>
+</div>
+<div class="wrap footline">
+<a href="catalog.html">Каталог направлений</a>
+<a href="solution.html">Что входит в решение</a>
+<a href="delivery.html">Доступ и оплата</a>
+<a href="legal.html">Условия и возврат</a>
+<a href="legal.html#privacy">Политика конфиденциальности</a>
+<a href="contact.html">Контакты</a>
 </div></footer>
 <script>
 (function(){var els=document.querySelectorAll('.reveal');
