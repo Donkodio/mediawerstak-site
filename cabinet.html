@@ -194,41 +194,8 @@ display:flex;align-items:center;justify-content:center;font-weight:700;margin-bo
 .safety{margin-top:26px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);
 border-left:3px solid #68D8BC;border-radius:12px;padding:18px;color:var(--muted);font-size:14px;line-height:1.6}
 </style>
-<script>
-const CAB = {"posts": {"Telegram": [["01_news_indonesia", "Индонезия открыла бесплатные курсы для взрослых", "19.10, 20:00", "опубликовано", "4 210"], ["03_science_green_london", "В Лондоне открыли самый зелёный квартал", "19.10, 07:45", "опубликовано", "3 180"], ["05_facts_tortoises", "Черепахи слышат рёбрами", "18.10, 19:00", "опубликовано", "5 640"], ["girl", "Утренний свет в спальне: почему важно", "18.10, 12:20", "опубликовано", "2 460"]], "Instagram": [["02_news_wildlife_bridge", "Мост, который спасает животных", "19.10, 12:30", "карусель 4:5", "12 900"], ["06_facts_kakapo", "Какапо — попугай, который не умеет летать", "18.10, 12:00", "карусель 4:5", "9 350"], ["girl", "Эстетика утра: свет, тишина, кофе", "18.10, 13:10", "карусель 4:5", "18 700"], ["08_world_repair", "Городская мастерская: починить вместо выбросить", "17.10, 12:00", "карусель 4:5", "7 120"]], "TikTok": [["07_science_photo", "Камера против цвета кожи: как свет врёт", "19.10, 18:30", "ролик 9:16", "48 200"], ["04_world_thames", "Темза: что нашли под водой", "18.10, 19:30", "ролик 9:16", "31 400"], ["05_facts_tortoises", "06 фактов о черепахах", "17.10, 18:30", "ролик 9:16", "22 800"]], "YouTube": [["02_news_wildlife_bridge", "Мост для диких животных", "18.10, 15:30", "ролик 9:16", "6 310"], ["03_science_green_london", "Зелёный район Лондона", "16.10, 15:30", "ролик 9:16", "4 190"]], "Pinterest": [["girl", "Пустая эстетика: свет и текстуры", "19.10, 12:30", "пин 4:5", "3 220"], ["01_news_indonesia", "Индонезия, море, утро", "18.10, 12:30", "пин 4:5", "2 780"], ["07_science_photo", "Тепло и цвет", "17.10, 12:30", "пин 4:5", "1 940"]], "X": [["05_facts_tortoises", "Факт: черепахи слышат рёбрами", "19.10, 08:00", "пост", "1 120"], ["06_facts_kakapo", "Какапо: единственный нелетающий попугай", "18.10, 08:00", "пост", "870"]]}, "recs": [{"branch": "Хорошие новости", "platform": "TikTok", "hook": "6–8 секунд, один сильный кадр", "why": "16–18 % лайков против 0,6 % у длинного ролика", "action": "Взять один факт и сделать ролик на 7 секунд с хуком в первом кадре"}, {"branch": "Факты", "platform": "TikTok", "hook": "«ФАКТ № 185» в финале вместо призыва", "why": "серийность держит внимание и возвращает к прошлым выпускам", "action": "Завести нумерацию выпусков и финальный титр с номером"}, {"branch": "Наука и природа", "platform": "YouTube Shorts", "hook": "Первый кадр — существо или место крупно", "why": "зритель остаётся, если сразу видно, на что смотрит", "action": "Ставить лучший кадр первым, а не по ходу сюжета"}, {"branch": "Эстетика", "platform": "Instagram", "hook": "Карусель 4:5 с текстом поверх фото", "why": "сохраняют в 5 раз чаще, чем лайкают", "action": "Добавить последний слайд «сохрани себе» без ссылок"}, {"branch": "Здоровье", "platform": "Telegram", "hook": "Один совет + доказательство", "why": "бытовые полезные темы дают сохранения 1,5–2,4 %", "action": "Делать утренний дайджест одним постом с фото"}, {"branch": "Душевные цитаты", "platform": "Pinterest", "hook": "Вертикальный пин с короткой фразой", "why": "пины живут месяцами, а не часами", "action": "Публиковать 3–5 свежих пинов в день, теги — в описании"}], "platforms": ["Telegram", "Instagram", "TikTok", "YouTube", "Pinterest", "X"]};
-let cur = CAB.platforms[0];
 
-function pubCard(p){
-  // p: [img, title, date, kind, reach]
-  return '<div class="pub"><img loading="lazy" src="assets/preview/'+p[0]+'.jpg" alt="">'
-    + '<div class="pbody"><div class="pt">'+p[1]+'</div>'
-    + '<div class="pm"><span>'+p[2]+' · '+p[3]+'</span><b>'+p[4]+'</b></div></div></div>';
-}
-
-function renderPub(){
-  document.getElementById('pubview').innerHTML = (CAB.posts[cur]||[]).map(pubCard).join('');
-  document.querySelectorAll('#ptabs .tab').forEach(t=>t.classList.toggle('active', t.dataset.p===cur));
-}
-
-function renderRecs(){
-  document.getElementById('recs').innerHTML = CAB.recs.map((r,i)=>
-    '<div class="rec"><div class="rt"><b>'+r.branch+'</b><span class="rp">'+r.platform+'</span></div>'
-    + '<h4>'+r.hook+'</h4><p>'+r.why+'</p>'
-    + '<button class="act" data-i="'+i+'">Сделать похожее →</button></div>').join('');
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('ptabs').innerHTML = CAB.platforms.map(p=>
-    '<button class="tab" data-p="'+p+'">'+p+'</button>').join('');
-  document.querySelectorAll('#ptabs .tab').forEach(t=>t.onclick=()=>{cur=t.dataset.p; renderPub();});
-  renderPub(); renderRecs();
-  document.getElementById('recs').addEventListener('click', e=>{
-    const b=e.target.closest('.act'); if(!b) return;
-    const old=b.textContent; b.textContent='Задача создана ✓'; b.disabled=true;
-    setTimeout(()=>{b.textContent=old;b.disabled=false;},1800);
-  });
-});
-</script>
+<link rel="stylesheet" href="assets/social-cards.css?v=20261029"><style>.note{color:var(--muted);font-size:14px;line-height:1.6;max-width:850px}.sc-info{padding:24px;border:1px solid #ffffff18;border-radius:20px;background:#ffffff04}.sc-info h3{margin-top:0}.sc-info p{color:var(--muted);font-size:14px;line-height:1.65}</style><script defer src="assets/social-cards.js?v=20261029"></script>
 </head>
 <body>
 <header><div class="wrap nav">
@@ -247,45 +214,22 @@ document.addEventListener('DOMContentLoaded', () => {
 <a href="contact.html">Контакты</a>
 </nav></div></header>
 
+
 <section style="padding-top:40px"><div class="wrap">
 <div class="num">ЛИЧНЫЙ КАБИНЕТ</div>
-<h2>Что сервис сделал для вас</h2>
-<p class="lead">Отдельно по каждой соцсети: что вышло, когда и что это дало. Ниже — рекомендации,
-что сейчас заходит, и подключение аккаунтов через вход на вашем устройстве.</p>
-<p class="note">Демонстрация: публикации и цифры тестовые, превью — наши собственные кадры.</p>
-
-<div class="switch" id="ptabs"></div>
-<div class="pubview" id="pubview"></div>
-
-<h3 class="ph">Рекомендации: что сейчас заходит</h3>
-<p class="lead" style="margin-bottom:14px">Раздел собирает приёмы из залетевших роликов и подсказывает,
-что сделать похожее в своей ветке. Нажатие «Сделать похожее» ставит задачу в производство.</p>
-<div class="recs" id="recs"></div>
-
-<h3 class="ph">Подключение аккаунтов</h3>
-<p class="lead" style="margin-bottom:16px">Там, где у площадки нет удобного API, работаем через ваш вход:
-вы входите на своём устройстве, сервис подхватывает сессию и публикует от вашего имени.
-Пароль при этом нам не передаётся.</p>
-<div class="steps3">
-<div class="step3"><div class="snum">1</div><b>Вход на вашем устройстве</b>
-<p>Открываете площадку у себя — на своём ноутбуке или телефоне — и входите как обычно.
-Двухфакторный код вводите сами, он остаётся у вас.</p></div>
-<div class="step3"><div class="snum">2</div><b>Сессия передаётся сервису</b>
-<p>Сервис забирает только сессию входа: без пароля и без кода. Сессия хранится в зашифрованном виде,
-привязана к одному аккаунту и одному устройству.</p></div>
-<div class="step3"><div class="snum">3</div><b>Сервис публикует и отчитывается</b>
-<p>Посты выходят по расписанию, каждое действие попадает в журнал. Отключить доступ можно в любой
-момент одной кнопкой — сессия стирается.</p></div>
-</div>
-<div class="safety">
-<b>Что важно знать.</b> Сессия — это ключ к аккаунту, поэтому она хранится отдельно от остальных данных,
-в зашифрованном виде, и не показывается в интерфейсе. Один аккаунт — одна сессия, один адрес:
-одновременный вход с чужих адресов приводит к блокировкам. Если площадка даёт официальный вход через API,
-используем API — он надёжнее.
-</div>
-
-<p style="margin-top:26px"><a class="btn btn-gold" href="panel.html">Перейти в дашборд</a>
-<a class="btn btn-ghost" href="contact.html">Задать вопрос</a></p>
+<h2>Ваш контент — в каждой соцсети</h2>
+<p class="lead">Аккаунты, реальные снимки из приложений и ссылки на публикации.
+Откройте скриншот крупнее или перейдите прямо в нужную соцсеть.</p>
+<p class="note">Это публичный пример кабинета на материалах проекта. Дата съёмки указана рядом:
+цифры на скриншоте относятся к этому моменту, а не к текущему времени.</p>
+<div class="social-cards"><div class="sc-tabs" role="tablist" aria-label="Соцсети"><button type="button" role="tab" class="sc-tab" id="sc-tab-0" data-sc-tab="0" aria-selected="true" aria-controls="sc-panel-0" tabindex="0">Instagram</button><button type="button" role="tab" class="sc-tab" id="sc-tab-1" data-sc-tab="1" aria-selected="false" aria-controls="sc-panel-1" tabindex="-1">Telegram</button><button type="button" role="tab" class="sc-tab" id="sc-tab-2" data-sc-tab="2" aria-selected="false" aria-controls="sc-panel-2" tabindex="-1">TikTok</button><button type="button" role="tab" class="sc-tab" id="sc-tab-3" data-sc-tab="3" aria-selected="false" aria-controls="sc-panel-3" tabindex="-1">YouTube</button><button type="button" role="tab" class="sc-tab" id="sc-tab-4" data-sc-tab="4" aria-selected="false" aria-controls="sc-panel-4" tabindex="-1">Pinterest</button><button type="button" role="tab" class="sc-tab" id="sc-tab-5" data-sc-tab="5" aria-selected="false" aria-controls="sc-panel-5" tabindex="-1">X</button></div><section role="tabpanel" id="sc-panel-0" aria-labelledby="sc-tab-0" ><div class="sc-grid"><article class="sc-card"><div class="sc-type">ПРОФИЛЬ · Instagram</div><button class="sc-shot" type="button" data-sc-shot="assets/social/instagram-goodnewstopic-profile-20261029.png" data-sc-title="@goodnewstopic" aria-label="Увеличить скриншот @goodnewstopic"><img loading="lazy" src="assets/social/instagram-goodnewstopic-profile-20261029.png" alt="Скриншот @goodnewstopic из приложения телефона"><span>Увеличить ↗</span></button><div class="sc-body"><p class="sc-topic">Хорошие новости · русскоязычная линия</p><h3>Good News</h3><p class="sc-handle">@goodnewstopic</p><p class="sc-date">Снимок: 29.10.2026 · 15:13 +0100</p><a class="sc-link" href="https://www.instagram.com/goodnewstopic/" target="_blank" rel="noopener noreferrer">Открыть профиль ↗</a></div></article><article class="sc-card"><div class="sc-type">ПУБЛИКАЦИЯ · Instagram</div><div class="sc-missing"><span aria-hidden="true">▧</span><b>Скриншот ещё не получен</b><small>Добавится после проверки в приложении</small></div><div class="sc-body"><p class="sc-topic">@goodnewstopic</p><h3>Хорошие новости со всего мира · карусель</h3><p class="sc-date">Дата не подтверждена</p><p class="sc-date">Ссылка из отчёта Гермеса от 28.10; отдельный снимок поста ожидается</p><p class="sc-date">Скриншот этого поста ещё не подтверждён</p><p class="sc-date">Просмотры, лайки и реакции: пока нет подтверждённых данных</p><div class="sc-actions"><a class="sc-link" href="https://www.instagram.com/goodnewstopic/p/DfCVZP7DkkI/" target="_blank" rel="noopener noreferrer">Открыть публикацию ↗</a><a class="sc-link" href="https://www.instagram.com/goodnewstopic/" target="_blank" rel="noopener noreferrer">Профиль ↗</a></div></div></article></div></section><section role="tabpanel" id="sc-panel-1" aria-labelledby="sc-tab-1" hidden><div class="sc-grid"><article class="sc-card"><div class="sc-type">ПРОФИЛЬ · Telegram</div><div class="sc-missing"><span aria-hidden="true">▧</span><b>Скриншот ещё не получен</b><small>Добавится после проверки в приложении</small></div><div class="sc-body"><p class="sc-topic">Контент-завод и разработка сервиса</p><h3>MediaWerstak</h3><p class="sc-handle">@mediawerstak</p><p class="sc-date">Свежий снимок пока недоступен</p><a class="sc-link" href="https://t.me/mediawerstak" target="_blank" rel="noopener noreferrer">Открыть профиль ↗</a></div></article></div></section><section role="tabpanel" id="sc-panel-2" aria-labelledby="sc-tab-2" hidden><div class="sc-grid"><div class="sc-empty"><b>Здесь появятся аккаунты и публикации</b><p>Для этой соцсети пока нет подтверждённых материалов.</p></div></div></section><section role="tabpanel" id="sc-panel-3" aria-labelledby="sc-tab-3" hidden><div class="sc-grid"><div class="sc-empty"><b>Здесь появятся аккаунты и публикации</b><p>Для этой соцсети пока нет подтверждённых материалов.</p></div></div></section><section role="tabpanel" id="sc-panel-4" aria-labelledby="sc-tab-4" hidden><div class="sc-grid"><article class="sc-card"><div class="sc-type">ПРОФИЛЬ · Pinterest</div><div class="sc-missing"><span aria-hidden="true">▧</span><b>Скриншот ещё не получен</b><small>Добавится после проверки в приложении</small></div><div class="sc-body"><p class="sc-topic">Визуальные материалы проекта</p><h3>MediaWerstak</h3><p class="sc-handle">@mediawerstak</p><p class="sc-date">Свежий снимок пока недоступен</p><a class="sc-link" href="https://www.pinterest.com/mediawerstak/" target="_blank" rel="noopener noreferrer">Открыть профиль ↗</a></div></article></div></section><section role="tabpanel" id="sc-panel-5" aria-labelledby="sc-tab-5" hidden><div class="sc-grid"><div class="sc-empty"><b>Здесь появятся аккаунты и публикации</b><p>Для этой соцсети пока нет подтверждённых материалов.</p></div></div></section><dialog id="sc-dialog" aria-labelledby="sc-dialog-title"><div class="sc-dialog-head"><b id="sc-dialog-title">Скриншот</b><button type="button" id="sc-dialog-close" aria-label="Закрыть скриншот">×</button></div><img id="sc-dialog-image" alt="Увеличенный скриншот"></dialog></div>
+<div class="sc-info"><h3>Подключение через телефон</h3>
+<p>Вход и подтверждение аккаунта проходят в приложении телефона. После проверки профиля
+здесь появляются его снимки и доступная статистика с датой обновления.</p>
+<p>Если приложение требует подтверждение, сервис сообщает об этом. Неизвестные просмотры,
+лайки и реакции не подменяются тестовыми цифрами.</p></div>
+<p style="margin-top:26px"><a class="btn btn-gold" href="panel.html">Дашборд</a>
+<a class="btn btn-ghost" href="agent.html">Как работает сервис</a></p>
 </div></section>
 <footer><div class="wrap foot">
 <div style="display:flex;align-items:center;gap:14px">
