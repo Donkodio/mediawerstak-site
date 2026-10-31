@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Панель управления — MediaWerstak</title>
-<meta name="description" content="Подключённые аккаунты, публикации по площадкам, очередь и план по веткам.">
+<title>Управление контент-заводом — MediaWerstak</title>
+<meta name="description" content="Защищённый вход в проекты MediaWerstak.">
 <link rel="canonical" href="https://mediawerstak.com/panel.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MediaWerstak">
-<meta property="og:title" content="Панель управления — MediaWerstak">
-<meta property="og:description" content="Подключённые аккаунты, публикации по площадкам, очередь и план по веткам.">
+<meta property="og:title" content="Управление контент-заводом — MediaWerstak">
+<meta property="og:description" content="Защищённый вход в проекты MediaWerstak.">
 <meta property="og:image" content="https://mediawerstak.com/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -161,131 +161,7 @@ background:linear-gradient(92deg,var(--gold),var(--gold2) 55%,var(--mint));
 @keyframes rise{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
 .reveal{opacity:1;transform:none}}
-</style><style>
-.note{color:var(--muted);font-size:14px;margin:10px 0 26px;max-width:760px}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin:0 0 32px}
-.stat{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px}
-.stat .sv{font-size:32px;font-weight:700;background:linear-gradient(90deg,#FFD98A,#68D8BC);
--webkit-background-clip:text;background-clip:text;color:transparent}
-.stat .sl{color:var(--muted);font-size:13px;margin-top:6px}
-.ph{font-size:20px;margin:34px 0 14px}
-.switch{display:inline-flex;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
-border-radius:999px;padding:4px;gap:4px;margin-bottom:16px}
-.tab{background:transparent;border:0;color:var(--muted);font-family:inherit;font-size:14px;
-padding:9px 18px;border-radius:999px;cursor:pointer}
-.tab.active{background:rgba(255,217,138,.16);color:#FFD98A}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
-.chip{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#F3F5F9;
-border-radius:999px;padding:8px 14px;font-size:13px;cursor:pointer;font-family:inherit}
-.chip.active{background:rgba(255,217,138,.16);border-color:rgba(255,217,138,.5);color:#FFD98A}
-.view{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
-.tile{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px}
-.tile.on{border-color:rgba(104,216,188,.35)}
-.tile.wait{border-color:rgba(255,217,138,.3)}
-.ttl{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:8px}
-.ttl b{font-size:15px}
-.tile .handle{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#CFE3FF;text-decoration:none;display:inline-block}
-.tile a.handle:hover{color:#FFD98A;text-decoration:underline}
-.tile .meta{color:var(--muted);font-size:12.5px;margin-top:8px}
-.pill{font-size:12px;padding:4px 10px;border-radius:999px;white-space:nowrap}
-.pill.on{background:rgba(104,216,188,.14);color:#68D8BC}
-.pill.wait{background:rgba(255,217,138,.14);color:#FFD98A}
-.pill.off{background:rgba(255,255,255,.07);color:var(--muted)}
-.ptable{width:100%;border-collapse:collapse;font-size:14px}
-.ptable th{text-align:left;color:var(--muted);font-weight:500;font-size:12px;letter-spacing:.06em;
-text-transform:uppercase;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.1)}
-.ptable td{padding:12px;border-bottom:1px solid rgba(255,255,255,.06)}
-.ptable tr:last-child td{border-bottom:0}
-.blink{color:#F3F5F9;text-decoration:none;display:inline-flex;gap:6px;align-items:center}
-.blink:hover{color:#FFD98A}
-.barr{color:#FFD98A;opacity:.65;font-size:12px}
-.queue{display:grid;gap:10px}
-.qitem{display:grid;grid-template-columns:130px 1fr 130px 1fr;gap:12px;align-items:center;
-background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px}
-.qtime{color:var(--gold);font-size:13px}
-.qbranch{font-weight:600}
-.qtype{color:var(--muted);font-size:13px}
-.qplat{color:#CFE3FF;font-size:13px}
-.inp{width:64px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
-color:#F3F5F9;border-radius:8px;padding:6px 8px;font-family:inherit;font-size:13px}
-.btn-mini{background:rgba(255,217,138,.14);border:1px solid rgba(255,217,138,.45);color:#FFD98A;
-border-radius:10px;padding:8px 12px;font-size:13px;cursor:pointer;font-family:inherit;white-space:nowrap}
-.pagegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
-.plink{display:block;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);
-border-radius:12px;padding:14px 16px;text-decoration:none;transition:border-color .15s,background .15s}
-.plink:hover{border-color:rgba(255,217,138,.45);background:rgba(255,217,138,.06)}
-.plink span{display:block;color:#F3F5F9;font-weight:600;font-size:15px}
-.plink em{display:block;color:var(--muted);font-style:normal;font-size:12px;margin-top:4px}
-.safety{margin-top:34px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);
-border-left:3px solid #68D8BC;border-radius:12px;padding:18px;color:var(--muted);font-size:14px;line-height:1.6}
-@media(max-width:640px){.qitem{grid-template-columns:1fr;gap:4px}}
-</style>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-const D = {"platforms": ["Telegram", "Instagram", "TikTok", "YouTube", "Pinterest", "X"], "matrix": {"Telegram": {"Хорошие новости": 2, "Наука и природа": 2, "Эстетика": 2, "Мир": 2, "Жизненное": 2, "Факты": 2, "Бизнес": 2, "Здоровье": 2, "Душевные цитаты": 1, "Биохакинг": 1}, "Instagram": {"Хорошие новости": 2, "Наука и природа": 1, "Эстетика": 2, "Мир": 0, "Жизненное": 0, "Факты": 1, "Бизнес": 0, "Здоровье": 0, "Душевные цитаты": 0, "Биохакинг": 2}, "TikTok": {"Хорошие новости": 1, "Наука и природа": 0, "Эстетика": 1, "Мир": 0, "Жизненное": 0, "Факты": 1, "Бизнес": 0, "Здоровье": 0, "Душевные цитаты": 0, "Биохакинг": 0}, "YouTube": {"Хорошие новости": 0, "Наука и природа": 1, "Эстетика": 0, "Мир": 0, "Жизненное": 0, "Факты": 0, "Бизнес": 0, "Здоровье": 1, "Душевные цитаты": 0, "Биохакинг": 0}, "Pinterest": {"Хорошие новости": 0, "Наука и природа": 0, "Эстетика": 2, "Мир": 0, "Жизненное": 0, "Факты": 0, "Бизнес": 0, "Здоровье": 1, "Душевные цитаты": 2, "Биохакинг": 0}, "X": {"Хорошие новости": 0, "Наука и природа": 0, "Эстетика": 0, "Мир": 0, "Жизненное": 0, "Факты": 1, "Бизнес": 0, "Здоровье": 0, "Душевные цитаты": 0, "Биохакинг": 0}}, "handles": {"Хорошие новости": "divinebrief", "Наука и природа": "naukbrief", "Эстетика": "estetikabrief", "Мир": "erdbrief", "Жизненное": "zhiznbrief", "Факты": "faktybrief", "Бизнес": "delobrief", "Здоровье": "zdoroviebrief", "Душевные цитаты": "dushevnobrief", "Биохакинг": "biohackbell"}, "slugs": {"Хорошие новости": "news", "Наука и природа": "science", "Эстетика": "glam", "Мир": "world", "Жизненное": "life", "Факты": "facts", "Бизнес": "business", "Здоровье": "health", "Душевные цитаты": "soul", "Биохакинг": "bio", "Душевное": "soul"}, "posts": {"Хорошие новости": 21, "Наука и природа": 14, "Эстетика": 19, "Мир": 12, "Жизненное": 14, "Факты": 16, "Бизнес": 12, "Здоровье": 11, "Душевные цитаты": 10, "Биохакинг": 10}, "urls": {"Telegram": "https://t.me/{h}", "Instagram": "https://www.instagram.com/{h}", "TikTok": "https://www.tiktok.com/@{h}", "YouTube": "https://www.youtube.com/@{h}", "Pinterest": "https://www.pinterest.com/{h}", "X": "https://x.com/{h}"}};
-let mode = 'branch';
-let sel = {branch: 'Хорошие новости', platform: 'Telegram'};
-const ST = {2:['подключён','on'], 1:['ожидает входа','wait'], 0:['не подключён','off']};
-
-function pill(st){const a=ST[st];return '<span class="pill '+a[1]+'">'+a[0]+'</span>';}
-
-function renderChips(){
-  const list = mode==='branch' ? Object.keys(D.handles) : D.platforms;
-  const cur  = mode==='branch' ? sel.branch : sel.platform;
-  document.getElementById('chips').innerHTML = list.map(x =>
-    '<button class="chip'+(x===cur?' active':'')+'" data-val="'+x+'">'+x+'</button>').join('');
-  document.querySelectorAll('#chips .chip').forEach(c=>c.onclick=()=>{
-    if(mode==='branch') sel.branch=c.dataset.val; else sel.platform=c.dataset.val;
-    render();
-  });
-}
-
-function render(){
-  renderChips();
-  let html='';
-  if(mode==='branch'){
-    const b = sel.branch, h = D.handles[b], slug = D.slugs[b];
-    html += '<div style="grid-column:1/-1;color:var(--muted);font-size:13.5px;margin-bottom:4px">'
-      + 'Ветка <a class="blink" href="'+slug+'.html"><b>'+b+'</b><span class="barr">→</span></a>'
-      + ' · аккаунт <span class="handle" style="color:#CFE3FF">@'+h+'</span></div>';
-    D.platforms.forEach(p=>{
-      const st = D.matrix[p][b];
-      const posts = st===2 ? Math.max(2, Math.round(D.posts[b]/2)) : 0;
-      html += '<div class="tile '+(st===2?'on':st===1?'wait':'')+'">'
-        + '<div class="ttl"><b>'+p+'</b>'+pill(st)+'</div>'
-        + '<div>'+(st>0?'<a class="handle" target="_blank" rel="noopener" href="'
-            + D.urls[p].replace('{h}', h)+'">@'+h+' ↗</a>':'<span class="handle">—</span>')+'</div>'
-        + '<div class="meta">'+(st===2?'публикаций за 7 дней: <b style="color:#68D8BC">'+posts+'</b>'
-            : st===1?'нужно подтвердить вход':'аккаунт ещё не создан')+'</div></div>';
-    });
-  } else {
-    const p = sel.platform;
-    html += '<div style="grid-column:1/-1;color:var(--muted);font-size:13.5px;margin-bottom:4px">'
-      + 'Площадка <b style="color:#F3F5F9">'+p+'</b></div>';
-    Object.keys(D.handles).forEach(b=>{
-      const st = D.matrix[p][b], slug = D.slugs[b];
-      html += '<div class="tile '+(st===2?'on':st===1?'wait':'')+'">'
-        + '<div class="ttl"><a class="blink" href="'+slug+'.html"><b>'+b+'</b><span class="barr">→</span></a>'+pill(st)+'</div>'
-        + '<div>'+(st>0?'<a class="handle" target="_blank" rel="noopener" href="'
-            + D.urls[p].replace('{h}', D.handles[b])+'">@'+D.handles[b]+' ↗</a>':'<span class="handle">—</span>')+'</div>'
-        + '<div class="meta">'+(st===2?'публикаций за 7 дней: <b style="color:#68D8BC">'
-            + Math.max(2, Math.round(D.posts[b]/2))+'</b>' : st===1?'нужно подтвердить вход':'здесь ветки нет')+'</div></div>';
-    });
-  }
-  document.getElementById('view').innerHTML = html;
-}
-
-document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
-  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
-  t.classList.add('active'); mode = t.dataset.mode; render();
-});
-document.querySelectorAll('.btn-mini').forEach(b=>b.addEventListener('click',()=>{
-  const old=b.textContent; b.textContent='план поставлен ✓'; b.disabled=true;
-  setTimeout(()=>{b.textContent=old;b.disabled=false;},1800);
-}));
-render();
-});
-</script>
+</style><meta http-equiv="refresh" content="0;url=https://app.mediawerstak.com/#projects">
 </head>
 <body>
 <header><div class="wrap nav">
@@ -303,102 +179,11 @@ render();
 <a href="about.html">О проекте</a>
 <a href="contact.html">Контакты</a>
 </nav></div></header>
-
-<section style="padding-top:40px"><div class="wrap">
-<div class="num">ПАНЕЛЬ</div>
-<h2>Дашборд: аккаунты и публикации</h2>
-<p class="lead">Смотрите с двух сторон: выбрали ветку — видно, в каких соцсетях она есть, а где ещё нет.
-Выбрали соцсеть — видно, какие ветки в ней работают. Планируете и выпускаете во все площадки ветки сразу.</p>
-<p class="note">Это демонстрация интерфейса: данные тестовые. <b>Пароли и токены в панели не хранятся
-и не показываются</b> — только факт подключения, счётчики и очередь.</p>
-
-<div class="stats">
-<div class="stat"><div class="sv">13</div><div class="sl">аккаунтов подключено</div></div>
-<div class="stat"><div class="sv">139</div><div class="sl">публикаций за 7 дней</div></div>
-<div class="stat"><div class="sv">6</div><div class="sl">в очереди</div></div>
-<div class="stat"><div class="sv">11</div><div class="sl">ждут подключения</div></div>
-</div>
-
-<h3 class="ph">Аккаунты: по ветке или по площадке</h3>
-<div class="switch">
-<button class="tab active" data-mode="branch">Выбрать ветку</button>
-<button class="tab" data-mode="platform">Выбрать площадку</button>
-</div>
-<div class="chips" id="chips"></div>
-<div class="view" id="view"></div>
-<noscript><p class="note">Для переключения нужен JavaScript — включите его в браузере.</p></noscript>
-
-<h3 class="ph">Очередь публикаций</h3>
-<div class="queue"><div class="qitem"><span class="qtime">сегодня 18:30</span>
-<span class="qbranch">Хорошие новости</span><span class="qtype">ролик 9:16</span>
-<span class="qplat">TikTok · Instagram · YouTube</span></div><div class="qitem"><span class="qtime">сегодня 20:00</span>
-<span class="qbranch">Хорошие новости</span><span class="qtype">пост с фото</span>
-<span class="qplat">Telegram</span></div><div class="qitem"><span class="qtime">завтра 10:00</span>
-<span class="qbranch">Наука и природа</span><span class="qtype">карусель 4:5</span>
-<span class="qplat">Instagram · Pinterest</span></div><div class="qitem"><span class="qtime">завтра 12:30</span>
-<span class="qbranch">Эстетика</span><span class="qtype">карусель 4:5</span>
-<span class="qplat">Pinterest · Instagram</span></div><div class="qitem"><span class="qtime">завтра 19:00</span>
-<span class="qbranch">Факты</span><span class="qtype">пост с фото</span>
-<span class="qplat">Telegram</span></div><div class="qitem"><span class="qtime">21.10 09:00</span>
-<span class="qbranch">Здоровье</span><span class="qtype">ролик 9:16</span>
-<span class="qplat">TikTok · YouTube</span></div></div>
-
-<h3 class="ph">План по ветке</h3>
-<p class="lead" style="margin-bottom:16px">Задаёте, сколько постов в день и сколько генераций в неделю
-нужно ветке. Кнопка справа ставит план сразу на все площадки этой ветки.</p>
-<div style="overflow-x:auto"><table class="ptable">
-<thead><tr><th>Ветка</th><th>Публикаций</th><th>Генерация контента</th><th></th></tr></thead>
-<tbody><tr><td><a class="blink" href="news.html"><b>Хорошие новости</b><span class="barr">→</span></a></td>
-<td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
-<td><input class="inp" type="number" value="21" min="0" max="200"> постов / неделя</td>
-<td><button class="btn-mini" data-plan="Хорошие новости">во всю ветку →</button></td></tr><tr><td><a class="blink" href="science.html"><b>Наука и природа</b><span class="barr">→</span></a></td>
-<td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
-<td><input class="inp" type="number" value="14" min="0" max="200"> постов / неделя</td>
-<td><button class="btn-mini" data-plan="Наука и природа">во всю ветку →</button></td></tr><tr><td><a class="blink" href="glam.html"><b>Эстетика</b><span class="barr">→</span></a></td>
-<td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
-<td><input class="inp" type="number" value="19" min="0" max="200"> постов / неделя</td>
-<td><button class="btn-mini" data-plan="Эстетика">во всю ветку →</button></td></tr><tr><td><a class="blink" href="world.html"><b>Мир</b><span class="barr">→</span></a></td>
-<td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
-<td><input class="inp" type="number" value="12" min="0" max="200"> постов / неделя</td>
-<td><button class="btn-mini" data-plan="Мир">во всю ветку →</button></td></tr><tr><td><a class="blink" href="life.html"><b>Жизненное</b><span class="barr">→</span></a></td>
-<td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
-<td><input class="inp" type="number" value="14" min="0" max="200"> постов / неделя</td>
-<td><button class="btn-mini" data-plan="Жизненное">во всю ветку →</button></td></tr><tr><td><a class="blink" href="facts.html"><b>Факты</b><span class="barr">→</span></a></td>
-<td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
-<td><input class="inp" type="number" value="16" min="0" max="200"> постов / неделя</td>
-<td><button class="btn-mini" data-plan="Факты">во всю ветку →</button></td></tr><tr><td><a class="blink" href="business.html"><b>Бизнес</b><span class="barr">→</span></a></td>
-<td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
-<td><input class="inp" type="number" value="12" min="0" max="200"> постов / неделя</td>
-<td><button class="btn-mini" data-plan="Бизнес">во всю ветку →</button></td></tr><tr><td><a class="blink" href="health.html"><b>Здоровье</b><span class="barr">→</span></a></td>
-<td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
-<td><input class="inp" type="number" value="11" min="0" max="200"> постов / неделя</td>
-<td><button class="btn-mini" data-plan="Здоровье">во всю ветку →</button></td></tr><tr><td><a class="blink" href="soul.html"><b>Душевные цитаты</b><span class="barr">→</span></a></td>
-<td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
-<td><input class="inp" type="number" value="10" min="0" max="200"> постов / неделя</td>
-<td><button class="btn-mini" data-plan="Душевные цитаты">во всю ветку →</button></td></tr><tr><td><a class="blink" href="bio.html"><b>Биохакинг</b><span class="barr">→</span></a></td>
-<td><input class="inp" type="number" value="3" min="0" max="30"> в день</td>
-<td><input class="inp" type="number" value="10" min="0" max="200"> постов / неделя</td>
-<td><button class="btn-mini" data-plan="Биохакинг">во всю ветку →</button></td></tr></tbody></table></div>
-
-<h3 class="ph">Страницы сайта</h3>
-<p class="lead" style="margin-bottom:14px">Всё, что описано на сайте, — открывается в один клик.</p>
-<div class="pagegrid">
-<a class="plink" href="index.html"><span>Главная</span><em>о сервисе и вариантах</em></a>
-<a class="plink" href="news.html"><span>Хорошие новости</span><em>01 · тематика</em></a><a class="plink" href="science.html"><span>Наука и природа</span><em>02 · тематика</em></a><a class="plink" href="glam.html"><span>Эстетика</span><em>03 · тематика</em></a><a class="plink" href="world.html"><span>Мир</span><em>04 · тематика</em></a><a class="plink" href="life.html"><span>Жизненное</span><em>05 · тематика</em></a><a class="plink" href="facts.html"><span>Факты</span><em>06 · тематика</em></a><a class="plink" href="business.html"><span>Бизнес</span><em>07 · тематика</em></a><a class="plink" href="health.html"><span>Здоровье</span><em>08 · тематика</em></a><a class="plink" href="soul.html"><span>Душевные цитаты</span><em>09 · тематика</em></a><a class="plink" href="bio.html"><span>Биохакинг</span><em>10 · тематика</em></a>
-<a class="plink" href="about.html"><span>О проекте</span><em>кто делает</em></a>
-<a class="plink" href="contact.html"><span>Контакты</span><em>написать нам</em></a>
-<a class="plink" href="https://link.mediawerstak.com" target="_blank" rel="noopener"><span>Линкер</span><em>все площадки</em></a>
-</div>
-
-<div class="safety">
-<b>Безопасность.</b> Панель показывает только то, что можно показывать: площадка, ник, статус входа,
-счётчики и очередь. Ключи, пароли и коды двухфакторной проверки хранятся отдельно и в интерфейс не попадают.
-Любое действие — публикация, план, подключение — попадает в журнал: кто, что, когда.
-</div>
-<p style="margin-top:26px"><a class="btn btn-gold" href="contact.html">Хочу такую панель</a>
-<a class="btn btn-ghost" href="index.html#plans">Как это получить</a></p>
-</div></section>
-<footer><div class="wrap foot">
+<section><div class="wrap">
+<h1>Управление контент-заводом</h1>
+<p class="lead">Открываем защищённый рабочий кабинет с вашими проектами.</p>
+<a class="btn main" href="https://app.mediawerstak.com/#projects">Открыть мои проекты ↗</a>
+</div></section><footer><div class="wrap foot">
 <div style="display:flex;align-items:center;gap:14px">
 <img class="mw" src="assets/logo_small.png" width="54" height="54" alt="MediaWerstak">
 <div><b style="color:#F3F5F9">MediaWerstak</b> · CONTENT FACTORY<br>Not your feed · Не ваша лента</div></div>
