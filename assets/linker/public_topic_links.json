@@ -1,0 +1,148 @@
+{
+  "schema": 1,
+  "platforms": [
+    [
+      "telegram",
+      "Telegram"
+    ],
+    [
+      "instagram",
+      "Instagram"
+    ],
+    [
+      "threads",
+      "Threads"
+    ],
+    [
+      "youtube",
+      "YouTube Shorts"
+    ],
+    [
+      "tiktok",
+      "TikTok"
+    ],
+    [
+      "x",
+      "X"
+    ],
+    [
+      "pinterest",
+      "Pinterest"
+    ],
+    [
+      "reddit",
+      "Reddit"
+    ],
+    [
+      "facebook",
+      "Facebook"
+    ]
+  ],
+  "topics": {
+    "news": {
+      "name": "Хорошие новости",
+      "status": "active",
+      "linker": "https://goodnews.mediawerstak.com/#news",
+      "background": "https://mediawerstak.com/assets/linker/background-news.jpg",
+      "links": {
+        "telegram": "https://t.me/goodnewstopic",
+        "instagram": "https://www.instagram.com/goodnewstopic/",
+        "threads": "https://www.threads.com/@goodnewstopic",
+        "youtube": "https://www.youtube.com/@goodnewstopic",
+        "tiktok": "https://www.tiktok.com/@goodnewstopic",
+        "x": "https://x.com/goodnewstopic",
+        "pinterest": "https://www.pinterest.com/goodnewstopic/",
+        "reddit": "https://www.reddit.com/user/goodnewstopic2399/"
+      },
+      "account_creation_authorized": false
+    },
+    "science": {
+      "name": "Наука и природа",
+      "status": "example",
+      "linker": "https://goodnews.mediawerstak.com/#science",
+      "background": "https://mediawerstak.com/assets/linker/background-science.jpg",
+      "links": {},
+      "account_creation_authorized": false
+    },
+    "glam": {
+      "name": "Эстетика",
+      "status": "example",
+      "linker": "https://goodnews.mediawerstak.com/#glam",
+      "background": "https://mediawerstak.com/assets/linker/background-glam.jpg",
+      "links": {},
+      "account_creation_authorized": false
+    },
+    "world": {
+      "name": "Мир",
+      "status": "example",
+      "linker": "https://goodnews.mediawerstak.com/#world",
+      "background": "https://mediawerstak.com/assets/linker/background-world.jpg",
+      "links": {},
+      "account_creation_authorized": false
+    },
+    "life": {
+      "name": "Жизненное",
+      "status": "example",
+      "linker": "https://goodnews.mediawerstak.com/#life",
+      "background": "https://mediawerstak.com/assets/linker/background-life.jpg",
+      "links": {},
+      "account_creation_authorized": false
+    },
+    "facts": {
+      "name": "Факты",
+      "status": "example",
+      "linker": "https://goodnews.mediawerstak.com/#facts",
+      "background": "https://mediawerstak.com/assets/linker/background-facts.jpg",
+      "links": {},
+      "account_creation_authorized": false
+    },
+    "business": {
+      "name": "Бизнес",
+      "status": "example",
+      "linker": "https://goodnews.mediawerstak.com/#business",
+      "background": "https://mediawerstak.com/assets/linker/background-business.jpg",
+      "links": {},
+      "account_creation_authorized": false
+    },
+    "health": {
+      "name": "Здоровье",
+      "status": "example",
+      "linker": "https://goodnews.mediawerstak.com/#health",
+      "background": "https://mediawerstak.com/assets/linker/background-health.jpg",
+      "links": {},
+      "account_creation_authorized": false
+    },
+    "soul": {
+      "name": "Душевные цитаты",
+      "status": "example",
+      "linker": "https://goodnews.mediawerstak.com/#soul",
+      "background": "https://mediawerstak.com/assets/linker/background-soul.jpg",
+      "links": {},
+      "account_creation_authorized": false
+    },
+    "bio": {
+      "name": "Биохакинг",
+      "status": "example",
+      "linker": "https://goodnews.mediawerstak.com/#bio",
+      "background": "https://mediawerstak.com/assets/linker/background-bio.jpg",
+      "links": {},
+      "account_creation_authorized": false
+    },
+    "mira": {
+      "name": "Mira Velsk",
+      "status": "active",
+      "linker": "https://mira.mediawerstak.com/",
+      "background": "https://mira.mediawerstak.com/bg.jpg",
+      "links": {
+        "telegram": "https://t.me/miravelsk",
+        "instagram": "https://www.instagram.com/miravelsk/",
+        "threads": "https://www.threads.com/@miravelsk",
+        "youtube": "https://www.youtube.com/@miravelsk",
+        "tiktok": "https://www.tiktok.com/@miravelsk3",
+        "x": "https://x.com/MiraVelsk",
+        "facebook": "https://www.facebook.com/profile.php?id=100093574665815"
+      },
+      "account_creation_authorized": false
+    }
+  }
+}

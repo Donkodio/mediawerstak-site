@@ -179,7 +179,20 @@ background:linear-gradient(92deg,var(--gold),var(--gold2) 55%,var(--mint));
 <a href="about.html">О проекте</a>
 <a href="contact.html">Контакты</a>
 </nav></div></header>
-
+<style>
+#topic-linker{scroll-margin-top:90px}.social.off{opacity:1;color:var(--muted);background:rgba(255,255,255,.025)}
+.linker-section{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,380px);gap:64px;align-items:center}
+.linker-section .lead{max-width:560px}.linker-section .note{max-width:520px;line-height:1.6;margin-top:22px}
+.linker-preview{position:relative;isolation:isolate;overflow:hidden;border-radius:32px;border:1px solid rgba(255,255,255,.24);min-height:520px;background:#10151b;box-shadow:0 25px 80px #0005}
+.linker-preview:before{content:"";position:absolute;inset:-12px;z-index:-2;background:var(--lp-photo) center/cover;filter:blur(4px);transform:scale(1.04)}
+.linker-preview:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#080e1680,#080e16b8 70%,#080e16e0)}
+.lp-content{padding:30px 24px;text-align:center}.lp-mark{display:grid;place-items:center;width:58px;height:58px;border-radius:19px;margin:0 auto 16px;border:1px solid #ffffff4a;background:#ffffff1f;backdrop-filter:blur(18px);color:var(--lp-accent);font-size:22px;font-weight:700}
+.lp-content h3{font-size:25px;margin:0 0 10px;letter-spacing:-.02em}.lp-content p{font-size:13px;color:#e4e8ef;line-height:1.5;margin:0 auto 24px;max-width:280px}
+.lp-rows{display:grid;gap:9px}.lp-row{display:flex;justify-content:space-between;align-items:center;text-align:left;gap:12px;border:1px solid #ffffff40;background:#1018208a;border-radius:16px;padding:14px 16px;font-size:14px;backdrop-filter:blur(20px)}
+.lp-row span:last-child{color:#d2dce7;font-size:12px}.lp-pending{color:#c6cdd6}.lp-all{display:inline-block;margin:18px 0 24px;font-size:13px;color:var(--lp-accent)}.lp-content small{display:block;font-size:11px;color:#ced7e2}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+@media(max-width:760px){#topic-linker{scroll-margin-top:200px}.linker-section{grid-template-columns:1fr;gap:30px}.linker-preview{width:min(100%,380px);justify-self:center}.linker-section .btn{display:inline-block}}
+</style>
 <div class="wrap topic-hero">
 <div class="crumb"><a href="index.html">Главная</a> · Пример работы · Эстетика</div>
 <span class="pill" style="color:#FFB98A;border-color:#FFB98A44">пример работы завода · 03</span>
@@ -200,12 +213,22 @@ background:linear-gradient(92deg,var(--gold),var(--gold2) 55%,var(--mint));
 <li><b>Instagram · Facebook · Pinterest</b> — карусель 4:5</li>
 <li><b>TikTok · Shorts · Reels</b> — видео 1080×1920</li>
 <li><b>Telegram</b> — один пост: фото и описание</li>
-<li><b>Ритм</b> — 3 публикации в день</li>
+<li><b>Ритм</b> — по контент-плану тематики</li>
 </ul>
 <h4 style="margin-top:22px">Где смотреть</h4>
-<div class="socials"><a class="social on" href="https://t.me/mediawerstak" target="_blank" rel="noopener"><span>Telegram</span><span class="st">есть</span></a><div class="social off"><span>TikTok</span><span class="st">скоро</span></div><div class="social off"><span>Instagram</span><span class="st">скоро</span></div><div class="social off"><span>YouTube</span><span class="st">скоро</span></div><div class="social off"><span>X</span><span class="st">скоро</span></div><a class="social on" href="https://www.pinterest.com/mediawerstak" target="_blank" rel="noopener"><span>Pinterest</span><span class="st">есть</span></a><div class="social off"><span>Facebook</span><span class="st">скоро</span></div></div>
+<p class="note" style="margin-bottom:16px">Пример направления. Аккаунты пока не подключены — здесь появятся ваши профили.</p><div class="socials" data-topic="glam"><div class="social off" data-platform="telegram"><span>Telegram</span><span class="st">после подключения</span></div><div class="social off" data-platform="instagram"><span>Instagram</span><span class="st">после подключения</span></div><div class="social off" data-platform="threads"><span>Threads</span><span class="st">после подключения</span></div><div class="social off" data-platform="youtube"><span>YouTube Shorts</span><span class="st">после подключения</span></div><div class="social off" data-platform="tiktok"><span>TikTok</span><span class="st">после подключения</span></div><div class="social off" data-platform="x"><span>X</span><span class="st">после подключения</span></div><div class="social off" data-platform="pinterest"><span>Pinterest</span><span class="st">после подключения</span></div><div class="social off" data-platform="reddit"><span>Reddit</span><span class="st">после подключения</span></div><div class="social off" data-platform="facebook"><span>Facebook</span><span class="st">после подключения</span></div></div><p style="margin:20px 0 0"><a class="btn" href="#topic-linker">Посмотреть линкер ↓</a></p>
 </div></div></section>
 
+<section id="topic-linker"><div class="wrap linker-section">
+<div><span class="pill">Пример линкера</span><h2>Все площадки «Эстетика»</h2>
+<p class="lead">Одна ссылка для шапки профиля, описания ролика и QR-кода. Открывается сразу эта тематика: её оформление, её площадки и её материалы.</p>
+<a class="btn main" data-topic-linker="glam" href="https://goodnews.mediawerstak.com/#glam" target="_blank" rel="noopener noreferrer">Открыть линкер ↗</a>
+<p class="note">Это демонстрация оформления. Пустые кнопки станут ссылками после подключения аккаунтов.</p>
+</div><div class="linker-preview" style="--lp-photo:url('https://mediawerstak.com/assets/linker/background-glam.jpg');--lp-accent:#FFB98A" aria-label="Пример линкера: Эстетика">
+<div class="lp-content"><span class="lp-mark">03</span><h3>Эстетика</h3><p>Красивые кадры, стиль, интерьеры, атмосфера.</p>
+<div class="lp-rows"><div class="lp-row lp-pending"><span>Telegram</span><span>скоро</span></div><div class="lp-row lp-pending"><span>Instagram</span><span>скоро</span></div><div class="lp-row lp-pending"><span>Threads</span><span>скоро</span></div><div class="lp-row lp-pending"><span>YouTube Shorts</span><span>скоро</span></div></div><a class="lp-all" href="https://goodnews.mediawerstak.com/#glam" target="_blank" rel="noopener noreferrer">Все площадки →</a>
+<small>MediaWerstak · Пример линкера</small></div></div>
+</div></section>
 <section><div class="wrap">
 <h2>Другие тематики</h2>
 <div class="grid"><a class="card reveal" href="news.html" style="padding:16px"><div class="bar" style="background:#68D8BC"></div><h3 style="font-size:17px;margin:6px 0 4px">Хорошие новости</h3><p style="font-size:14px">То, чего нет в топе: события, которые меняют день к лучшему.</p></a><a class="card reveal" href="science.html" style="padding:16px"><div class="bar" style="background:#8FC9FF"></div><h3 style="font-size:17px;margin:6px 0 4px">Наука и природа</h3><p style="font-size:14px">Открытия, животные, космос и то, как устроен мир.</p></a><a class="card reveal" href="world.html" style="padding:16px"><div class="bar" style="background:#A6E3C6"></div><h3 style="font-size:17px;margin:6px 0 4px">Мир</h3><p style="font-size:14px">Страны, города, люди и их устройство без политики.</p></a><a class="card reveal" href="life.html" style="padding:16px"><div class="bar" style="background:#FFD98A"></div><h3 style="font-size:17px;margin:6px 0 4px">Жизненное</h3><p style="font-size:14px">Истории людей, из которых что-то понятно про себя.</p></a><a class="card reveal" href="facts.html" style="padding:16px"><div class="bar" style="background:#9ED8FF"></div><h3 style="font-size:17px;margin:6px 0 4px">Факты</h3><p style="font-size:14px">Короткие проверенные факты — по одному в посте.</p></a><a class="card reveal" href="business.html" style="padding:16px"><div class="bar" style="background:#C7B7FF"></div><h3 style="font-size:17px;margin:6px 0 4px">Бизнес</h3><p style="font-size:14px">Как устроены компании, деньги и работа.</p></a><a class="card reveal" href="health.html" style="padding:16px"><div class="bar" style="background:#8FE3B4"></div><h3 style="font-size:17px;margin:6px 0 4px">Здоровье</h3><p style="font-size:14px">Сон, движение, питание — по доказательствам, а не по слухам.</p></a><a class="card reveal" href="soul.html" style="padding:16px"><div class="bar" style="background:#FFC2D1"></div><h3 style="font-size:17px;margin:6px 0 4px">Душевные цитаты</h3><p style="font-size:14px">Слова, которые попадают в день.</p></a><a class="card reveal" href="bio.html" style="padding:16px"><div class="bar" style="background:#7FE0D0"></div><h3 style="font-size:17px;margin:6px 0 4px">Биохакинг</h3><p style="font-size:14px">Практики для тела и головы — с проверкой на здравый смысл.</p></a></div></div></section>
