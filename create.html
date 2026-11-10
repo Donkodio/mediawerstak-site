@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Создать публикацию — MediaWerstak</title>
+<meta name="description" content="Медиаверстак: выбери готовый шаблон — сторитаим, карусель, нарезка, реклама, липсинк — и закажи публикацию.">
+<link rel="canonical" href="https://mediawerstak.com/create.html">
+<meta name="theme-color" content="#0B101B">
+<link rel="icon" href="https://mediawerstak.com/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="https://mediawerstak.com/assets/apple-touch-icon-180.png">
+<style>
+:root{--bg:#0B101B;--card:#131A28;--line:#233047;--text:#E8EDF6;--muted:#93A0B5;--gold:#e2be6a}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 600px at 50% -10%,#16213a 0%,var(--bg) 60%);
+  color:var(--text);font:16px/1.55 -apple-system,Segoe UI,Roboto,Inter,sans-serif;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;padding:24px}
+.card{max-width:560px;width:100%;background:var(--card);border:1px solid var(--line);
+  border-radius:22px;padding:28px 24px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.logo{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.logo img{width:46px;height:46px;border-radius:12px}
+.brand{font-weight:800;letter-spacing:.02em;font-size:18px}
+.brand span{color:var(--gold)}
+h1{font-size:26px;line-height:1.2;margin:0 0 8px}
+p.sub{color:var(--muted);margin:0 0 22px;font-size:15px}
+a.btn{display:block;text-align:center;background:var(--gold);color:#0b0c10;font-weight:800;
+  text-decoration:none;padding:16px 20px;border-radius:14px;font-size:17px}
+a.btn:active{transform:translateY(1px)}
+.list{margin:20px 0 0;padding:0;list-style:none;color:var(--muted);font-size:14px}
+.list li{padding:7px 0;border-bottom:1px solid var(--line)}
+.list li:last-child{border:0}
+.state{margin-top:16px;font-size:13px;color:var(--muted);text-align:center}
+.back{display:inline-block;margin-top:18px;color:var(--muted);text-decoration:none;font-size:14px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">
+    <img src="assets/logo_small.png" width="46" height="46" alt="MediaWerstak">
+    <div class="brand">Media<span>Werstak</span></div>
+  </div>
+  <h1>Создать публикацию</h1>
+  <p class="sub">Открой Медиаверстак, выбери готовый шаблон и заполни пару полей — я сделаю ролик
+     и пришлю на одобрение в Telegram.</p>
+  <a class="btn" id="open" href="https://create.zbsprice.shop/" rel="noopener">Открыть Медиаверстак</a>
+  <ul class="list">
+    <li>Сторитайм · хорошие новости · инсайт</li>
+    <li>Карусель с подписями, озвучкой или музыкой</li>
+    <li>Нарезка по ссылке · поиск видео под нарезку</li>
+    <li>Липсинк персонажа · оживление фото · генерация картинок</li>
+    <li>Реклама: свой баннер или баннер по описанию</li>
+  </ul>
+  <div class="state" id="state">Панель открывается на защищённом адресе</div>
+  <a class="back" href="index.html">&larr; На главную</a>
+</div>
+<script>
+(function(){
+  var btn = document.getElementById('open');
+  var state = document.getElementById('state');
+  // Проверяем, что панель жива; если нет — подсказываем, что делать
+  var url = 'https://create.zbsprice.shop/';
+  fetch(url, {method:'HEAD', mode:'cors'}).then(function(r){
+    state.textContent = r.ok ? 'Панель на связи' : 'Панель не отвечает — напишите в Telegram';
+  }).catch(function(){
+    state.textContent = 'Открывайте кнопкой — панель работает и без этой проверки';
+  });
+})();
+</script>
+</body>
+</html>
